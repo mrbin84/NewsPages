@@ -15,7 +15,6 @@ import { useSession, signOut } from 'next-auth/react';
 const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const { data: session, status } = useSession();

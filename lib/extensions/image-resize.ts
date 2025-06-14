@@ -150,8 +150,6 @@ export const ImageResize = Image.extend<ImageResizeOptions>({
               if (!node) return DecorationSet.empty
 
               const attrs = node.attrs
-              const imageWidth = attrs.width || 0
-              const imageHeight = attrs.height || 0
 
               const container = document.createElement('div')
               container.style.cssText = `
