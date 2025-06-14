@@ -1,12 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { Editor } from '@/components/Editor';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Article {
   id: string;
@@ -19,21 +17,19 @@ export default function EditPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const { toast } = useToast();
   const [article, setArticle] = useState<Article | null>(null);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchArticle = async () => {
+      setIsLoading(true);
       try {
-        const response = await fetch(`/api/news/${params.id}`);
+        const response = await fetch(`/api/articles/${params.id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch article');
         }
         const data = await response.json();
         setArticle(data);
-        setTitle(data.title);
-        setContent(data.content);
       } catch (error) {
         console.error('Error fetching article:', error);
         toast({
@@ -41,93 +37,66 @@ export default function EditPage({ params }: { params: { id: string } }) {
           description: '기사를 불러오는데 실패했습니다.',
           variant: 'destructive',
         });
+        router.push('/news');
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchArticle();
-  }, [params.id, toast]);
+  }, [params.id, toast, router]);
 
-  const handleSave = async () => {
-    if (!title.trim()) {
-      toast({
-        title: '제목을 입력해주세요',
-        variant: 'destructive',
-      });
-      return;
-    }
-
-    setIsLoading(true);
+  const handleSave = useCallback(async (data: { title: string; content: string }) => {
+    setIsSaving(true);
     try {
-      const response = await fetch(`/api/news/${params.id}`, {
+      const response = await fetch(`/api/articles/${params.id}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          title,
-          content,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
         throw new Error('Failed to update article');
       }
 
-      toast({
-        title: '성공',
-        description: '기사가 수정되었습니다.',
-      });
-
+      toast({ title: '성공', description: '기사가 수정되었습니다.' });
       router.push(`/news/${params.id}`);
       router.refresh();
     } catch (error) {
       console.error('Error updating article:', error);
-      toast({
-        title: '에러',
-        description: '기사 수정에 실패했습니다.',
-        variant: 'destructive',
-      });
+      toast({ title: '에러', description: '기사 수정에 실패했습니다.', variant: 'destructive' });
     } finally {
-      setIsLoading(false);
+      setIsSaving(false);
     }
+  }, [params.id, router, toast]);
+
+  const handleCancel = () => {
+    router.back();
   };
 
+  if (isLoading) {
+    return <div className="container mx-auto py-8 text-center">기사 정보를 불러오는 중입니다...</div>;
+  }
+
   if (!article) {
-    return <div>Loading...</div>;
+    return <div className="container mx-auto py-8 text-center">기사를 찾을 수 없습니다.</div>;
   }
 
   return (
     <div className="container mx-auto py-8">
       <Card>
-        <CardContent className="pt-6">
-          <div className="space-y-4">
-            <Input
-              type="text"
-              placeholder="제목을 입력하세요"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="text-2xl font-bold"
-            />
-            <Editor
-              content={content}
-              onChange={setContent}
-            />
-            <div className="flex justify-end space-x-4">
-              <Button
-                variant="outline"
-                onClick={() => router.back()}
-                disabled={isLoading}
-              >
-                취소
-              </Button>
-              <Button
-                onClick={handleSave}
-                disabled={isLoading}
-              >
-                {isLoading ? '저장 중...' : '저장'}
-              </Button>
-            </div>
-          </div>
+        <CardHeader>
+          <CardTitle>기사 수정</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Editor
+            initialTitle={article.title}
+            initialContent={article.content}
+            onSave={handleSave}
+            onCancel={handleCancel}
+            isSaving={isSaving}
+            saveButtonText="수정 완료"
+          />
         </CardContent>
       </Card>
     </div>

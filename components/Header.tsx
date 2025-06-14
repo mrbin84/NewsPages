@@ -9,6 +9,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Editor } from './Editor';
+import { useToast } from '@/components/ui/use-toast';
 import { useSession, signOut } from 'next-auth/react';
 
 const Header = () => {
@@ -40,90 +41,54 @@ const Header = () => {
 
   return (
     <Card className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        {/* 로고 */}
-        <Link href="/" className="mr-6 flex items-center space-x-2">
-          <div className="relative w-[130px] h-[33px]">
-            <Image
-              src="/images/logo.png"
-              alt="NewsRead Logo"
-              fill
-              style={{ objectFit: 'contain' }}
-              priority
-            />
-          </div>
-        </Link>
-
-        {/* 메인 네비게이션 */}
-        <nav className="hidden lg:flex flex-1 items-center space-x-6 text-sm font-medium">
-          <Link
-            href="/"
-            className={`transition-colors hover:text-foreground/80 ${
-              isActive('/') ? 'text-foreground' : 'text-foreground/60'
-            }`}
+      <div className="container relative flex h-14 items-center justify-between">
+        {/* Left Section: Nav links (Desktop) / Hamburger (Mobile) */}
+        <div className="flex items-center">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            홈
-          </Link>
-          <Link
-            href="/news"
-            className={`transition-colors hover:text-foreground/80 ${
-              isActive('/news') ? 'text-foreground' : 'text-foreground/60'
-            }`}
-          >
-            뉴스
-          </Link>
-          <Link
-            href="/market"
-            className={`transition-colors hover:text-foreground/80 ${
-              isActive('/market') ? 'text-foreground' : 'text-foreground/60'
-            }`}
-          >
-            시장동향
-          </Link>
-          <Link
-            href="/analysis"
-            className={`transition-colors hover:text-foreground/80 ${
-              isActive('/analysis') ? 'text-foreground' : 'text-foreground/60'
-            }`}
-          >
-            분석
-          </Link>
-          <Link
-            href="/community"
-            className={`transition-colors hover:text-foreground/80 ${
-              isActive('/community') ? 'text-foreground' : 'text-foreground/60'
-            }`}
-          >
-            커뮤니티
-          </Link>
-        </nav>
-
-        {/* 햄버거 메뉴 버튼 */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="lg:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <Menu className="h-5 w-5" />
-        </Button>
-
-        <div className="flex items-center space-x-4">
-          {/* 검색 버튼 */}
-          <Button variant="ghost" size="icon">
-            <Search className="h-5 w-5" />
+            <Menu className="h-5 w-5" />
           </Button>
+          <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium ml-4">
+            <Link
+              href="/"
+              className={`transition-colors hover:text-foreground/80 ${
+                isActive('/') ? 'text-foreground' : 'text-foreground/60'
+              }`}
+            >
+              홈
+            </Link>
+            <Link
+              href="/news"
+              className={`transition-colors hover:text-foreground/80 ${
+                isActive('/news') ? 'text-foreground' : 'text-foreground/60'
+              }`}
+            >
+              뉴스
+            </Link>
+          </nav>
+        </div>
 
-          {/* 다크모드 토글 */}
-          <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
-            {isDarkMode ? (
-              <Moon className="h-5 w-5" />
-            ) : (
-              <Sun className="h-5 w-5" />
-            )}
-          </Button>
+        {/* Center Section: Logo */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="relative w-[130px] h-[33px]">
+              <Image
+                src="/images/logo.png"
+                alt="NewsRead Logo"
+                fill
+                style={{ objectFit: 'contain' }}
+                priority
+              />
+            </div>
+          </Link>
+        </div>
 
-          {/* 로그인/로그아웃 버튼 */}
+        {/* Right Section: Actions */}
+        <div className="flex items-center justify-end">
           <div className="flex items-center gap-4">
             {session && (
               <Dialog open={isEditorOpen} onOpenChange={setIsEditorOpen}>
@@ -136,9 +101,11 @@ const Header = () => {
                     기사 작성
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-4xl h-[80vh] p-0 overflow-y-auto">
-                  <DialogTitle className="sr-only">기사 작성</DialogTitle>
-                  <Editor onSaveSuccess={() => setIsEditorOpen(false)} />
+                <DialogContent className="max-w-4xl p-0">
+                  <DialogTitle className="p-4 pb-0">새 기사 작성</DialogTitle>
+                  <div className="p-4 pt-2">
+                    <NewArticleEditor onSaveSuccess={() => setIsEditorOpen(false)} />
+                  </div>
                 </DialogContent>
               </Dialog>
             )}
@@ -170,7 +137,7 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden border-t">
           <nav className="container py-4">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 pl-4">
               <Link
                 href="/"
                 className="text-sm font-medium transition-colors hover:text-foreground/80"
@@ -185,27 +152,7 @@ const Header = () => {
               >
                 뉴스
               </Link>
-              <Link
-                href="/market"
-                className="text-sm font-medium transition-colors hover:text-foreground/80"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                시장동향
-              </Link>
-              <Link
-                href="/analysis"
-                className="text-sm font-medium transition-colors hover:text-foreground/80"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                분석
-              </Link>
-              <Link
-                href="/community"
-                className="text-sm font-medium transition-colors hover:text-foreground/80"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                커뮤니티
-              </Link>
+
               <div className="flex flex-col gap-4">
                 {session && (
                   <Dialog open={isEditorOpen} onOpenChange={setIsEditorOpen}>
@@ -220,8 +167,10 @@ const Header = () => {
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-4xl p-0">
-                      <DialogTitle className="sr-only">기사 작성</DialogTitle>
-                      <Editor onSaveSuccess={() => setIsEditorOpen(false)} />
+                      <DialogTitle className="p-4 pb-0">새 기사 작성</DialogTitle>
+                      <div className="p-4 pt-2">
+                        <NewArticleEditor onSaveSuccess={() => setIsEditorOpen(false)} />
+                      </div>
                     </DialogContent>
                   </Dialog>
                 )}
@@ -257,6 +206,50 @@ const Header = () => {
         </div>
       )}
     </Card>
+  );
+};
+
+const NewArticleEditor = ({ onSaveSuccess }: { onSaveSuccess: () => void }) => {
+  const router = useRouter();
+  const { toast } = useToast();
+  const [isSaving, setIsSaving] = useState(false);
+
+  const handleSave = async (data: { title: string; content: string }) => {
+    setIsSaving(true);
+    try {
+      const response = await fetch('/api/articles', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to save article');
+      }
+
+      toast({ title: '성공', description: '기사가 성공적으로 저장되었습니다.' });
+      router.refresh();
+      onSaveSuccess();
+    } catch (error: any) {
+      console.error('Save error:', error);
+      toast({
+        title: '저장 실패',
+        description: error.message || '기사 저장 중 오류가 발생했습니다.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  return (
+    <Editor
+      onSave={handleSave}
+      isSaving={isSaving}
+      onCancel={onSaveSuccess} // Close dialog on cancel
+      saveButtonText="기사 저장"
+    />
   );
 };
 

@@ -44,17 +44,32 @@ import { EmojiPicker } from '@/components/EmojiPicker';
 import { useRouter } from 'next/navigation';
 
 interface EditorProps {
-  onSaveSuccess: () => void;
+  initialTitle?: string;
+  initialContent?: string;
+  onSave: (data: { title: string; content: string }) => Promise<void>;
+  onCancel?: () => void;
+  isSaving: boolean;
+  saveButtonText?: string;
+  cancelButtonText?: string;
 }
 
-export function Editor({ onSaveSuccess }: EditorProps) {
-  const router = useRouter();
+export function Editor({
+  initialTitle = '',
+  initialContent = '',
+  onSave,
+  onCancel,
+  isSaving,
+  saveButtonText = '저장',
+  cancelButtonText = '취소',
+}: EditorProps) {
   const { toast } = useToast();
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState(initialTitle);
   const [isDragging, setIsDragging] = useState(false);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
+
+  useEffect(() => {
+    setTitle(initialTitle);
+  }, [initialTitle]);
 
   const handleFile = (file: File, view: any, coordinates?: { pos: number; inside: number } | null) => {
     if (!file.type.startsWith('image/')) {
@@ -94,6 +109,7 @@ export function Editor({ onSaveSuccess }: EditorProps) {
         placeholder: '본문을 입력하세요...',
       }),
     ],
+    content: initialContent,
     editorProps: {
       handleDOMEvents: {
         drop(view, event) {
@@ -107,111 +123,68 @@ export function Editor({ onSaveSuccess }: EditorProps) {
           }
           return false;
         },
-        dragenter(view, event) {
-          setIsDragging(true);
-          return false;
-        },
-        dragleave(view, event) {
-          setIsDragging(false);
-          return false;
-        },
-        paste(view, event) {
+        dragenter: () => { setIsDragging(true); return false; },
+        dragleave: () => { setIsDragging(false); return false; },
+        paste(view, event: ClipboardEvent<Element>) {
           const clipboard = event.clipboardData;
           if (!clipboard) return false;
 
-          const imageFiles = Array.from(clipboard.files).filter(file =>
-            file.type.startsWith('image/')
-          );
+          const items = Array.from(clipboard.items);
+          const imageItems = items.filter(item => item.type.startsWith('image/'));
 
-          if (imageFiles.length > 0) {
+          if (imageItems.length > 0) {
             event.preventDefault();
-
-            const text = clipboard.getData('text/plain');
-            const { schema } = view.state;
-
+            const imageFiles = imageItems.map(item => item.getAsFile()).filter((file): file is File => file !== null);
+            
             const readFilesAsDataUrls = (files: File[]): Promise<string[]> => {
-              return Promise.all(
-                files.map(file => {
-                  return new Promise<string>((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.onload = () => resolve(reader.result as string);
-                    reader.onerror = () => reject(reader.error);
-                    reader.readAsDataURL(file);
-                  });
-                })
-              );
+              return Promise.all(files.map(file => {
+                return new Promise((resolve, reject) => {
+                  const reader = new FileReader();
+                  reader.onload = () => resolve(reader.result as string);
+                  reader.onerror = () => reject(reader.error);
+                  reader.readAsDataURL(file);
+                });
+              }));
             };
 
-            readFilesAsDataUrls(imageFiles).then(sources => {
-              let tr = view.state.tr;
-              if (!tr.selection.empty) {
-                tr = tr.deleteSelection();
-              }
-
-              if (text) {
-                tr.insertText(text);
-              }
-
-              sources.forEach(src => {
+            readFilesAsDataUrls(imageFiles).then(urls => {
+              const { schema, tr } = view.state;
+              urls.forEach(src => {
                 const node = schema.nodes.image.create({ src });
-                tr.insert(tr.selection.to, node);
+                tr.insert(tr.selection.from, node);
               });
-
               view.dispatch(tr);
             });
 
+            const textItem = items.find(item => item.type === 'text/plain');
+            if (textItem) {
+              textItem.getAsString(text => {
+                const { tr } = view.state;
+                tr.insertText(text);
+                view.dispatch(tr);
+              });
+            }
             return true;
           }
-
           return false;
         },
       },
     },
-    content: content,
-    onUpdate: ({ editor }) => {
-      setContent(editor.getHTML());
-    },
   });
 
-  const handleSave = async () => {
+  useEffect(() => {
+    if (editor && initialContent && editor.getHTML() !== initialContent) {
+      editor.commands.setContent(initialContent, false);
+    }
+  }, [initialContent, editor]);
+
+  const handleSaveClick = async () => {
+    const content = editor?.getHTML() || '';
     if (!title.trim()) {
-      toast({ title: '제목을 입력해주세요.', variant: 'destructive' });
+      toast({ title: '제목을 입력해주세요', variant: 'destructive' });
       return;
     }
-    if (!content.trim() || content === '<p></p>') {
-      toast({ title: '내용을 입력해주세요.', variant: 'destructive' });
-      return;
-    }
-
-    setIsSaving(true);
-    try {
-      const response = await fetch('/api/articles', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, content }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || '기사 저장에 실패했습니다.');
-      }
-
-      toast({
-        title: '기사 저장됨',
-        description: '기사가 성공적으로 저장되었습니다.',
-      });
-      router.refresh();
-      onSaveSuccess();
-    } catch (error) {
-      console.error('Error saving article:', error);
-      toast({
-        title: '오류',
-        description: error instanceof Error ? error.message : '기사 저장 중 오류가 발생했습니다.',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSaving(false);
-    }
+    await onSave({ title, content });
   };
 
   const handleImageUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -230,13 +203,14 @@ export function Editor({ onSaveSuccess }: EditorProps) {
   }
 
   return (
-    <div className="flex flex-col h-[80vh]">
+    <div className="flex flex-col h-full max-h-[85vh]">
       <div className="p-2 flex-shrink-0">
         <Input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="제목을 입력하세요"
           className="text-2xl font-bold border-none focus:ring-0 shadow-none p-0"
+          disabled={isSaving}
         />
       </div>
       <div 
@@ -244,29 +218,34 @@ export function Editor({ onSaveSuccess }: EditorProps) {
         onClick={() => editor?.chain().focus().run()}
       >
         <div className="sticky top-0 z-10 bg-background border-b p-2 flex items-center gap-1 flex-wrap" onClick={(e) => e.stopPropagation()}>
-          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleBold().run()} className={editor.isActive('bold') ? 'bg-accent' : ''}><Bold className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleItalic().run()} className={editor.isActive('italic') ? 'bg-accent' : ''}><Italic className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleUnderline().run()} className={editor.isActive('underline') ? 'bg-accent' : ''}><UnderlineIcon className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleHighlight().run()} className={editor.isActive('highlight') ? 'bg-accent' : ''}><Highlighter className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().setTextAlign('left').run()} className={editor.isActive({ textAlign: 'left' }) ? 'bg-accent' : ''}><AlignLeft className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().setTextAlign('center').run()} className={editor.isActive({ textAlign: 'center' }) ? 'bg-accent' : ''}><AlignCenter className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().setTextAlign('right').run()} className={editor.isActive({ textAlign: 'right' }) ? 'bg-accent' : ''}><AlignRight className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleBulletList().run()} className={editor.isActive('bulletList') ? 'bg-accent' : ''}><List className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleOrderedList().run()} className={editor.isActive('orderedList') ? 'bg-accent' : ''}><ListOrdered className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleBold().run()} className={editor.isActive('bold') ? 'bg-accent' : ''} disabled={isSaving}><Bold className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleItalic().run()} className={editor.isActive('italic') ? 'bg-accent' : ''} disabled={isSaving}><Italic className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleUnderline().run()} className={editor.isActive('underline') ? 'bg-accent' : ''} disabled={isSaving}><UnderlineIcon className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleHighlight().run()} className={editor.isActive('highlight') ? 'bg-accent' : ''} disabled={isSaving}><Highlighter className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().setTextAlign('left').run()} className={editor.isActive({ textAlign: 'left' }) ? 'bg-accent' : ''} disabled={isSaving}><AlignLeft className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().setTextAlign('center').run()} className={editor.isActive({ textAlign: 'center' }) ? 'bg-accent' : ''} disabled={isSaving}><AlignCenter className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().setTextAlign('right').run()} className={editor.isActive({ textAlign: 'right' }) ? 'bg-accent' : ''} disabled={isSaving}><AlignRight className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleBulletList().run()} className={editor.isActive('bulletList') ? 'bg-accent' : ''} disabled={isSaving}><List className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => editor.chain().focus().toggleOrderedList().run()} className={editor.isActive('orderedList') ? 'bg-accent' : ''} disabled={isSaving}><ListOrdered className="h-4 w-4" /></Button>
           <div className="relative">
-            <Button variant="ghost" size="sm" onClick={() => setShowEmojiPicker(!showEmojiPicker)}><Smile className="h-4 w-4" /></Button>
+            <Button variant="ghost" size="sm" onClick={() => setShowEmojiPicker(!showEmojiPicker)} disabled={isSaving}><Smile className="h-4 w-4" /></Button>
             {showEmojiPicker && (
               <div className="absolute top-full left-0 z-50"><EmojiPicker onEmojiSelect={addEmoji} /></div>
             )}
           </div>
           <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" id="image-upload" />
-          <Button variant="ghost" size="sm" onClick={() => document.getElementById('image-upload')?.click()}><ImageIcon className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={() => document.getElementById('image-upload')?.click()} disabled={isSaving}><ImageIcon className="h-4 w-4" /></Button>
         </div>
         <EditorContent editor={editor} className="flex-grow p-4 prose max-w-none focus:outline-none" />
       </div>
-      <div className="p-4 border-t flex justify-end flex-shrink-0">
-        <Button onClick={handleSave} disabled={isSaving}>
-          {isSaving ? '저장 중...' : '기사 저장'}
+      <div className="p-4 border-t flex justify-end flex-shrink-0 space-x-4">
+        {onCancel && (
+          <Button variant="outline" onClick={onCancel} disabled={isSaving}>
+            {cancelButtonText}
+          </Button>
+        )}
+        <Button onClick={handleSaveClick} disabled={isSaving}>
+          {isSaving ? '저장 중...' : saveButtonText}
         </Button>
       </div>
     </div>
