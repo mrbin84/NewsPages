@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     try {
       verify(token, JWT_SECRET);
       return NextResponse.json({ isAuthenticated: true });
-    } catch (error) {
+    } catch {
       return NextResponse.json({ isAuthenticated: false });
     }
   } catch (error) {

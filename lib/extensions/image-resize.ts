@@ -1,14 +1,14 @@
-import { mergeAttributes, Node } from '@tiptap/core'
+
 import { ReactNodeViewRenderer } from '@tiptap/react'
 import Image from '@tiptap/extension-image'
 import { ImageResizeComponent } from '@/components/ImageResizeComponent'
-import { Extension } from '@tiptap/core'
+
 import { Plugin, PluginKey } from '@tiptap/pm/state'
 import { Decoration, DecorationSet } from '@tiptap/pm/view'
-import { NodeSelection, Selection } from 'prosemirror-state'
+import { NodeSelection } from 'prosemirror-state'
 
 export interface ImageResizeOptions {
-  HTMLAttributes: Record<string, any>
+  HTMLAttributes: Record<string, unknown>
 }
 
 declare module '@tiptap/core' {
@@ -75,7 +75,7 @@ export const ImageResize = Image.extend<ImageResizeOptions>({
     let resizingImage: HTMLElement | null = null
     let resizeDirection: ResizeDirection | '' = ''
 
-    const createHandle = (position: ResizeDirection, imageWidth: number, imageHeight: number) => {
+        const createHandle = (position: ResizeDirection) => {
       const handle = document.createElement('div')
       handle.className = `image-resize-handle ${position}`
       handle.style.cssText = `
@@ -166,7 +166,7 @@ export const ImageResize = Image.extend<ImageResizeOptions>({
 
               // Add all handles with current image dimensions
               resizeDirections.forEach(position => {
-                container.appendChild(createHandle(position, imageWidth, imageHeight))
+                              container.appendChild(createHandle(position))
               })
 
               decorations.push(

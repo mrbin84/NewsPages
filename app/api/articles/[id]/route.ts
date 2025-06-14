@@ -14,7 +14,7 @@ async function getArticle(id: string) {
     const fileContent = await fs.readFile(filePath, 'utf-8');
     const article = JSON.parse(fileContent);
     return article;
-  } catch (error) {
+  } catch {
     return null;
   }
 }

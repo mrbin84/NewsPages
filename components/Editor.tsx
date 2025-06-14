@@ -7,15 +7,9 @@ import TextAlign from '@tiptap/extension-text-align';
 import Underline from '@tiptap/extension-underline';
 import Highlight from '@tiptap/extension-highlight';
 import Placeholder from '@tiptap/extension-placeholder';
-import TaskList from '@tiptap/extension-task-list';
-import TaskItem from '@tiptap/extension-task-item';
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Bold, 
   Italic, 
@@ -25,23 +19,15 @@ import {
   AlignLeft,
   AlignCenter,
   AlignRight,
-  AlignJustify,
   Underline as UnderlineIcon,
   Highlighter,
-  CheckSquare,
-  X,
-  Upload
 } from 'lucide-react';
 import { ImageResize } from '@/lib/extensions/image-resize';
-import { ImageResizeComponent } from '@/components/ImageResizeComponent';
-import { NodeSelection } from 'prosemirror-state';
 import { useToast } from '@/components/ui/use-toast';
+import { EditorView } from '@tiptap/pm/view';
 import { ClipboardEvent } from 'react';
-import Link from 'next/link';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Smile } from 'lucide-react';
 import { EmojiPicker } from '@/components/EmojiPicker';
-import { useRouter } from 'next/navigation';
 
 interface EditorProps {
   initialTitle?: string;
@@ -71,7 +57,7 @@ export function Editor({
     setTitle(initialTitle);
   }, [initialTitle]);
 
-  const handleFile = (file: File, view: any, coordinates?: { pos: number; inside: number } | null) => {
+    const handleFile = useCallback((file: File, view: EditorView, coordinates?: { pos: number; inside: number } | null) => {
     if (!file.type.startsWith('image/')) {
       toast({ title: '이미지 파일만 업로드 가능합니다.', variant: 'destructive' });
       return;
@@ -90,8 +76,8 @@ export function Editor({
       }
       view.dispatch(transaction);
     };
-    reader.readAsDataURL(file);
-  };
+        reader.readAsDataURL(file);
+  }, [toast]);
 
   const editor = useEditor({
     extensions: [
@@ -189,9 +175,10 @@ export function Editor({
 
   const handleImageUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (!file || !editor) return;
-    handleFile(file, editor.view);
-  }, [editor]);
+    if (file && editor) {
+      handleFile(file, editor.view);
+    }
+  }, [editor, handleFile]);
 
   const addEmoji = useCallback((emoji: string) => {
     editor?.chain().focus().insertContent(emoji).run();

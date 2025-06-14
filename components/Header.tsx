@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
-import { Moon, Sun, Search, Menu, LogIn, LogOut } from 'lucide-react';
+import { Menu, LogOut } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -20,10 +20,6 @@ const Header = () => {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
   const { data: session, status } = useSession();
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    // 실제 다크모드 토글 로직 추가 필요
-  };
 
   const handleLogout = async () => {
     try {
@@ -231,11 +227,12 @@ const NewArticleEditor = ({ onSaveSuccess }: { onSaveSuccess: () => void }) => {
       toast({ title: '성공', description: '기사가 성공적으로 저장되었습니다.' });
       router.refresh();
       onSaveSuccess();
-    } catch (error: any) {
+    } catch (error) {
       console.error('Save error:', error);
+      const message = error instanceof Error ? error.message : '기사 저장 중 오류가 발생했습니다.';
       toast({
         title: '저장 실패',
-        description: error.message || '기사 저장 중 오류가 발생했습니다.',
+        description: message,
         variant: 'destructive',
       });
     } finally {
