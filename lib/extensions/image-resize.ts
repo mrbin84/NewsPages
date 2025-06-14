@@ -149,7 +149,6 @@ export const ImageResize = Image.extend<ImageResizeOptions>({
               const node = state.doc.nodeAt(pos)
               if (!node) return DecorationSet.empty
 
-              const attrs = node.attrs
 
               const container = document.createElement('div')
               container.style.cssText = `
