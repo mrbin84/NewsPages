@@ -20,7 +20,8 @@ async function getArticle(id: string) {
 }
 
 // GET handler for a single article
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, context: { params: { id: string } }) {
+  const { params } = context;
   try {
     const article = await getArticle(params.id);
     if (!article) {
@@ -34,7 +35,8 @@ export async function GET(request: Request, { params }: { params: { id: string }
 }
 
 // PUT handler to update an article
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, context: { params: { id: string } }) {
+  const { params } = context;
   const session = await getServerSession(authOptions);
   if (!session) {
     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
