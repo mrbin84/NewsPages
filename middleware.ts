@@ -12,19 +12,11 @@ export default withAuth(
   },
   {
     callbacks: {
-      authorized: ({ req, token }) => {
-        const pathname = req.nextUrl.pathname;
-        // Allow access to the login page for unauthenticated users.
-        if (pathname.startsWith('/login')) {
-          return true;
-        }
-        // For any other route, require a token.
-        return !!token;
-      },
+      authorized: ({ token }) => !!token,
     },
   }
 );
 
 export const config = {
-  matcher: ['/editor/:path*', '/login']
+  matcher: ['/editor/:path*']
 }; 
