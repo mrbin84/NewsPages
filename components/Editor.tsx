@@ -28,7 +28,6 @@ import {
 import { ImageResize } from '@/lib/extensions/image-resize';
 import { useToast } from '@/components/ui/use-toast';
 import { EditorView } from '@tiptap/pm/view';
-import { ClipboardEvent } from 'react';
 import { EmojiPicker } from '@/components/EmojiPicker';
 
 interface EditorProps {
@@ -113,7 +112,7 @@ export function Editor({
         },
         dragenter: () => { setIsDragging(true); return false; },
         dragleave: () => { setIsDragging(false); return false; },
-        paste(view, event: ClipboardEvent<Element>) {
+        paste(view, event) {
           const clipboard = event.clipboardData;
           if (!clipboard) return false;
 
