@@ -26,7 +26,7 @@ export default function NewsDetailPage() {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await fetch(`/api/news/${params.id}`);
+                const response = await fetch(`/api/articles/${params.id}`);
         if (!response.ok) {
           throw new Error('기사를 불러오는데 실패했습니다.');
         }
