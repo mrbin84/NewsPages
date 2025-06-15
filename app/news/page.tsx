@@ -50,17 +50,21 @@ export default function NewsPage() {
     fetchArticles();
   }, [fetchArticles]);
 
-  const handleDelete = async (id: string) => {
+    const handleDelete = async (id: string) => {
     try {
-      const response = await fetch('/api/articles', {
+      const response = await fetch(`/api/articles/${id}`, {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ids: [id] }),
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to delete the article.');
+        let errorMessage = `Error: ${response.status}`;
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorData.error || 'Failed to delete article';
+        } catch (e) {
+          // Ignore if response is not JSON
+        }
+        throw new Error(errorMessage);
       }
 
       toast({ title: '성공', description: '기사를 삭제했습니다.' });

@@ -95,38 +95,3 @@ export async function POST(request: Request) {
   }
 }
 
-export async function DELETE(request: Request) {
-  const session = await getServerSession(authOptions);
-
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
-  try {
-    const body = await request.json();
-    const idsToDelete = Array.isArray(body.ids) ? body.ids : [body.id];
-
-    if (!idsToDelete || idsToDelete.length === 0 || idsToDelete.some((id: string) => !id)) {
-      return NextResponse.json({ error: 'Article ID(s) are required' }, { status: 400 });
-    }
-
-    await Promise.all(
-      idsToDelete.map(async (id: string) => {
-        const filePath = path.join(newsDir, `${id}.json`);
-        try {
-          await fs.unlink(filePath);
-        } catch (error) {
-          // Ignore errors if file doesn't exist
-          if (error instanceof Error && 'code' in error && error.code !== 'ENOENT') {
-            throw error;
-          }
-        }
-      })
-    );
-
-    return new Response(null, { status: 204 }); // No Content
-  } catch (error) {
-    console.error('Error deleting articles:', error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
-  }
-}

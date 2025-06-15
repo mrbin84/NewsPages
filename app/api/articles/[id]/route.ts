@@ -64,3 +64,30 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
   }
 }
+
+// DELETE handler for a single article
+export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+  }
+
+  try {
+    const idToDelete = params.id;
+    if (!idToDelete) {
+      return NextResponse.json({ message: 'Article ID is required' }, { status: 400 });
+    }
+
+    const filePath = path.join(newsDirectory, `${idToDelete}.json`);
+    await fs.unlink(filePath);
+    
+    return new Response(null, { status: 204 });
+  } catch (error) {
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
+      // If file doesn't exist, it's already deleted. Success.
+      return new Response(null, { status: 204 });
+    }
+    console.error('Error in DELETE /api/articles/[id]:', error);
+    return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
+  }
+}
