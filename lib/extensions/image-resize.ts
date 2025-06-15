@@ -1,11 +1,11 @@
 
-import { ReactNodeViewRenderer } from '@tiptap/react'
-import Image from '@tiptap/extension-image'
-import { ImageResizeComponent } from '@/components/ImageResizeComponent'
+import { ReactNodeViewRenderer } from '@tiptap/react';
+import Image from '@tiptap/extension-image';
+import { ImageResizeComponent } from '@/components/ImageResizeComponent';
 
-import { Plugin, PluginKey } from '@tiptap/pm/state'
-import { Decoration, DecorationSet } from '@tiptap/pm/view'
-import { NodeSelection } from 'prosemirror-state'
+import { Plugin, PluginKey } from '@tiptap/pm/state';
+import { Decoration, DecorationSet } from '@tiptap/pm/view';
+import { NodeSelection } from 'prosemirror-state';
 
 export interface ImageResizeOptions {
   HTMLAttributes: Record<string, unknown>
@@ -141,14 +141,13 @@ export const ImageResize = Image.extend<ImageResizeOptions>({
         key: new PluginKey('imageResize'),
         props: {
           decorations(state) {
-            const { selection } = state
-            const decorations: Decoration[] = []
+            const { selection } = state;
+            const decorations: Decoration[] = [];
 
             if (selection instanceof NodeSelection && selection.node && selection.node.type.name === 'image') {
-              const pos = selection.from
+              const pos = selection.from;
               const node = state.doc.nodeAt(pos)
               if (!node) return DecorationSet.empty
-
 
               const container = document.createElement('div')
               container.style.cssText = `

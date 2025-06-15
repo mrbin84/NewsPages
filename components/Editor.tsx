@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
@@ -21,12 +23,12 @@ import {
   AlignRight,
   Underline as UnderlineIcon,
   Highlighter,
+  Smile
 } from 'lucide-react';
 import { ImageResize } from '@/lib/extensions/image-resize';
 import { useToast } from '@/components/ui/use-toast';
 import { EditorView } from '@tiptap/pm/view';
 import { ClipboardEvent } from 'react';
-import { Smile } from 'lucide-react';
 import { EmojiPicker } from '@/components/EmojiPicker';
 
 interface EditorProps {
