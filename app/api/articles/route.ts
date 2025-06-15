@@ -16,7 +16,9 @@ interface Article {
   updatedAt?: Date | string;
 }
 
-const newsDir = path.join(process.cwd(), 'data', 'news');
+const newsDir = process.env.VERCEL
+  ? path.join('/tmp', 'data', 'news')
+  : path.join(process.cwd(), 'data', 'news');
 
 async function getArticles(): Promise<Article[]> {
   try {

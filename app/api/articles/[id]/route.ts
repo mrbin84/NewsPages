@@ -4,7 +4,9 @@ import path from 'path';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 
-const newsDirectory = path.join(process.cwd(), 'data', 'news');
+const newsDirectory = process.env.VERCEL
+  ? path.join('/tmp', 'data', 'news')
+  : path.join(process.cwd(), 'data', 'news');
 
 // Helper function to get a single article
 async function getArticle(id: string) {
