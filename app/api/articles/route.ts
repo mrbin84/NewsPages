@@ -1,55 +1,23 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
-import fs from 'fs/promises';
-import path from 'path';
-import crypto from 'crypto';
+import { supabase } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 
-interface Article {
-  id: string;
-  title: string;
-  content: string;
-  author?: string | null;
-  createdAt: Date | string;
-  updatedAt?: Date | string;
-}
-
-const newsDir = process.env.VERCEL
-  ? path.join('/tmp', 'data', 'news')
-  : path.join(process.cwd(), 'data', 'news');
-
-async function getArticles(): Promise<Article[]> {
-  try {
-    const files = await fs.readdir(newsDir);
-    const articles = await Promise.all(
-      files
-        .filter(file => file.endsWith('.json'))
-        .map(async file => {
-          const filePath = path.join(newsDir, file);
-          const data = await fs.readFile(filePath, 'utf-8');
-          const article = JSON.parse(data) as Article;
-          // Ensure createdAt is a Date object for sorting
-          article.createdAt = new Date(article.createdAt);
-          return article;
-        })
-    );
-    // Sort articles by creation date, newest first
-    const validArticles = articles.filter(Boolean).sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-    return validArticles;
-  } catch (error) {
-    // If the directory doesn't exist, return an empty array
-    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
-      return [];
-    }
-    throw error;
-  }
-}
-
+// GET all articles
 export async function GET() {
   try {
-    const articles = await getArticles();
+    const { data: articles, error } = await supabase
+      .from('articles')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching articles from Supabase:', error);
+      throw new Error(error.message);
+    }
+
     return NextResponse.json(articles, {
       headers: {
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
@@ -58,11 +26,12 @@ export async function GET() {
       },
     });
   } catch (error) {
-    console.error('Error fetching articles:', error);
+    console.error('Error in GET /api/articles:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
 
+// POST a new article
 export async function POST(request: Request) {
   const session = await getServerSession(authOptions);
 
@@ -77,23 +46,26 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Title and content are required' }, { status: 400 });
     }
 
-    const newArticle: Article = {
-      id: crypto.randomUUID(),
+    const newArticle = {
       title,
       content,
       author: session.user?.email,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     };
 
-    const filePath = path.join(newsDir, `${newArticle.id}.json`);
-    await fs.mkdir(newsDir, { recursive: true });
-    await fs.writeFile(filePath, JSON.stringify(newArticle, null, 2));
+    const { data, error } = await supabase
+      .from('articles')
+      .insert([newArticle])
+      .select()
+      .single();
 
-    return NextResponse.json(newArticle, { status: 201 });
+    if (error) {
+      console.error('Error saving article to Supabase:', error);
+      throw new Error(error.message);
+    }
+
+    return NextResponse.json(data, { status: 201 });
   } catch (error) {
-    console.error('Error saving article:', error);
+    console.error('Error in POST /api/articles:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
-

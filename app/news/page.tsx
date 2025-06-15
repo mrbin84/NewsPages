@@ -13,7 +13,8 @@ interface Article {
   id: string;
   title: string;
   content: string;
-  createdAt: string;
+  created_at: string;
+  updated_at: string;
 }
 
 function extractFirstImage(content: string): string | null {
@@ -99,6 +100,8 @@ export default function NewsPage() {
         ) : (
           articles.map((article) => {
             const thumbnail = extractFirstImage(article.content);
+            const isValidDate = article.created_at && !isNaN(new Date(article.created_at).getTime());
+
             return (
               <div key={article.id} className="flex items-center gap-4">
                 <Link href={`/news/${article.id}`} className="flex-grow">
@@ -124,7 +127,9 @@ export default function NewsPage() {
                             {article.content.replace(/<[^>]*>/g, '')}
                           </p>
                           <p className="text-xs text-muted-foreground">
-                            {format(new Date(article.createdAt), 'PPP', { locale: ko })}
+                            {isValidDate
+                              ? format(new Date(article.created_at), 'PPP', { locale: ko })
+                              : '날짜 정보 없음'}
                           </p>
                         </div>
                       </div>

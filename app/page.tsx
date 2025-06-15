@@ -9,7 +9,8 @@ interface Article {
   id: string;
   title: string;
   content: string;
-  createdAt: string;
+  created_at: string;
+  updated_at: string;
 }
 
 // Extract first image from content
@@ -71,6 +72,8 @@ export default function Home() {
           ) : (
             articles.map((article: Article) => {
               const thumbnailUrl = extractFirstImage(article.content);
+              const isValidDate = article.created_at && !isNaN(new Date(article.created_at).getTime());
+
               return (
                 <article key={article.id} className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                   <Link href={`/news/${article.id}`} className="block">
@@ -93,7 +96,9 @@ export default function Home() {
                             {article.content.replace(/<[^>]*>/g, '')}
                           </p>
                           <time className="text-sm text-gray-500">
-                            {format(new Date(article.createdAt), 'PPP', { locale: ko })}
+                            {isValidDate
+                              ? format(new Date(article.created_at), 'PPP', { locale: ko })
+                              : '날짜 정보 없음'}
                           </time>
                         </div>
                       </div>

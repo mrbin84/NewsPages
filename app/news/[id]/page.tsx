@@ -11,7 +11,8 @@ interface Article {
   id: string;
   title: string;
   content: string;
-  createdAt: string;
+  created_at: string;
+  updated_at: string;
   imageUrl?: string;
 }
 
@@ -70,6 +71,8 @@ export default function NewsDetailPage() {
     );
   }
 
+  const isValidDate = article.created_at && !isNaN(new Date(article.created_at).getTime());
+
   return (
     <div className="container mx-auto py-8">
       <div className="max-w-4xl mx-auto">
@@ -90,11 +93,13 @@ export default function NewsDetailPage() {
         <Card>
           <CardHeader>
             <CardTitle className="text-sm text-muted-foreground">
-              {new Date(article.createdAt).toLocaleDateString('ko-KR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
+              {isValidDate
+                ? new Date(article.created_at).toLocaleDateString('ko-KR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })
+                : '날짜 정보 없음'}
             </CardTitle>
           </CardHeader>
           <CardContent>

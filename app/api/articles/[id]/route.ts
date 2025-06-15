@@ -1,41 +1,39 @@
-import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { NextResponse, NextRequest } from 'next/server';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
+import { supabase } from '@/lib/supabase';
 
-const newsDirectory = process.env.VERCEL
-  ? path.join('/tmp', 'data', 'news')
-  : path.join(process.cwd(), 'data', 'news');
+export const dynamic = 'force-dynamic';
 
-// Helper function to get a single article
-async function getArticle(id: string) {
-  const filePath = path.join(newsDirectory, `${id}.json`);
-  try {
-    await fs.access(filePath);
-    const fileContent = await fs.readFile(filePath, 'utf-8');
-    const article = JSON.parse(fileContent);
-    return article;
-  } catch {
-    return null;
-  }
-}
-
-// GET handler for a single article
+// GET a single article by ID
 export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const article = await getArticle(params.id);
+    const { data: article, error } = await supabase
+      .from('articles')
+      .select('*')
+      .eq('id', params.id)
+      .single();
+
+    if (error) {
+      if (error.code === 'PGRST116') { // PostgREST error code for 'No rows found'
+        return NextResponse.json({ message: 'Article not found' }, { status: 404 });
+      }
+      console.error('Error fetching article from Supabase:', error);
+      throw new Error(error.message);
+    }
+
     if (!article) {
       return NextResponse.json({ message: 'Article not found' }, { status: 404 });
     }
+
     return NextResponse.json(article);
   } catch (error) {
-    console.error('Error in GET /api/articles/[id]:', error);
+    console.error(`Error in GET /api/articles/${params.id}:`, error);
     return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
   }
 }
 
-// PUT handler to update an article
+// PUT (update) a single article by ID
 export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions);
   if (!session) {
@@ -44,30 +42,30 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 
   try {
     const { title, content } = await request.json();
-    const filePath = path.join(newsDirectory, `${params.id}.json`);
-
-    const existingArticle = await getArticle(params.id);
-    if (!existingArticle) {
-        return NextResponse.json({ message: 'Article not found' }, { status: 404 });
+    if (!title || !content) {
+      return NextResponse.json({ message: 'Title and content are required' }, { status: 400 });
     }
 
-    const updatedArticle = {
-      ...existingArticle,
-      title,
-      content,
-      updatedAt: new Date().toISOString(),
-    };
+    const { data, error } = await supabase
+      .from('articles')
+      .update({ title, content, updated_at: new Date().toISOString() })
+      .eq('id', params.id)
+      .select()
+      .single();
 
-    await fs.writeFile(filePath, JSON.stringify(updatedArticle, null, 2));
+    if (error) {
+      console.error('Error updating article in Supabase:', error);
+      throw new Error(error.message);
+    }
 
-    return NextResponse.json(updatedArticle);
+    return NextResponse.json(data);
   } catch (error) {
-    console.error('Error in PUT /api/articles/[id]:', error);
+    console.error(`Error in PUT /api/articles/${params.id}:`, error);
     return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
   }
 }
 
-// DELETE handler for a single article
+// DELETE a single article by ID
 export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions);
   if (!session) {
@@ -75,21 +73,19 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
   }
 
   try {
-    const idToDelete = params.id;
-    if (!idToDelete) {
-      return NextResponse.json({ message: 'Article ID is required' }, { status: 400 });
+    const { error } = await supabase
+      .from('articles')
+      .delete()
+      .eq('id', params.id);
+
+    if (error) {
+      console.error('Error deleting article from Supabase:', error);
+      throw new Error(error.message);
     }
 
-    const filePath = path.join(newsDirectory, `${idToDelete}.json`);
-    await fs.unlink(filePath);
-    
     return new Response(null, { status: 204 });
   } catch (error) {
-    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
-      // If file doesn't exist, it's already deleted. Success.
-      return new Response(null, { status: 204 });
-    }
-    console.error('Error in DELETE /api/articles/[id]:', error);
+    console.error(`Error in DELETE /api/articles/${params.id}:`, error);
     return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
   }
 }
