@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
 import { getServerSession } from 'next-auth/next';
@@ -20,8 +20,7 @@ async function getArticle(id: string) {
 }
 
 // GET handler for a single article
-export async function GET(request: Request, context: { params: { id: string } }) {
-  const { params } = context;
+export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const article = await getArticle(params.id);
     if (!article) {
@@ -35,8 +34,7 @@ export async function GET(request: Request, context: { params: { id: string } })
 }
 
 // PUT handler to update an article
-export async function PUT(request: Request, context: { params: { id: string } }) {
-  const { params } = context;
+export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
   const session = await getServerSession(authOptions);
   if (!session) {
     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
