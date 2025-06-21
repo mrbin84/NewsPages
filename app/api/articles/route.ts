@@ -3,14 +3,14 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // 1 hour
 
 // GET all articles
 export async function GET() {
   try {
     const { data: articles, error } = await supabase
       .from('articles')
-      .select('*')
+      .select('id, title, created_at, updated_at, content')
       .order('created_at', { ascending: false });
 
     if (error) {
@@ -18,13 +18,22 @@ export async function GET() {
       throw new Error(error.message);
     }
 
-    return NextResponse.json(articles, {
-      headers: {
-        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-        'Pragma': 'no-cache',
-        'Expires': '0',
-      },
+    const processedArticles = articles.map(article => {
+      const imgMatch = article.content.match(/<img[^>]+src="([^" >]+)"/);
+      const thumbnail = imgMatch ? imgMatch[1] : null;
+      const summary = article.content.replace(/<[^>]*>/g, '').substring(0, 150);
+      
+      return {
+        id: article.id,
+        title: article.title,
+        created_at: article.created_at,
+        updated_at: article.updated_at,
+        thumbnail,
+        summary,
+      };
     });
+
+    return NextResponse.json(processedArticles);
   } catch (error) {
     console.error('Error in GET /api/articles:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });

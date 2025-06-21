@@ -1,57 +1,40 @@
-'use client';
-
 import Link from 'next/link';
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
-import { useEffect, useState } from 'react';
+import { getAbsoluteUrl } from '@/lib/utils';
 
 interface Article {
   id: string;
   title: string;
-  content: string;
+  summary: string;
+  thumbnail: string | null;
   created_at: string;
-  updated_at: string;
 }
 
-// Extract first image from content
-function extractFirstImage(content: string): string | null {
-  const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
-  return imgMatch ? imgMatch[1] : null;
-}
+async function getArticles(): Promise<Article[]> {
+  const res = await fetch(getAbsoluteUrl('/api/articles'), {
+    next: { revalidate: 3600 }, // 1시간 캐시
+  });
 
-export default function Home() {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchArticles() {
-      try {
-        const res = await fetch('/api/articles');
-        if (!res.ok) throw new Error('Failed to fetch articles');
-        const data = await res.json();
-        setArticles(Array.isArray(data) ? data : data.news || []);
-      } catch (error) {
-        console.error('Error fetching articles:', error);
-        setError('Failed to load articles');
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchArticles();
-  }, []);
-
-  if (loading) {
-    return (
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center py-8">로딩 중...</div>
-        </div>
-      </main>
-    );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch articles');
   }
 
+  return res.json();
+}
+
+export default async function Home() {
+  let articles: Article[] = [];
+  let error: string | null = null;
+
+  try {
+    articles = await getArticles();
+  } catch (err) {
+    console.error('Error fetching articles:', err);
+    error = '기사를 불러오는데 실패했습니다.';
+  }
+  
   if (error) {
     return (
       <main className="container mx-auto px-4 py-8">
@@ -71,7 +54,6 @@ export default function Home() {
             <p className="text-gray-500 text-center py-8">등록된 기사가 없습니다.</p>
           ) : (
             articles.map((article: Article) => {
-              const thumbnailUrl = extractFirstImage(article.content);
               const isValidDate = article.created_at && !isNaN(new Date(article.created_at).getTime());
 
               return (
@@ -79,10 +61,10 @@ export default function Home() {
                   <Link href={`/news/${article.id}`} className="block">
                     <div className="p-6">
                       <div className="flex gap-6">
-                        {thumbnailUrl && (
+                        {article.thumbnail && (
                           <div className="flex-shrink-0 w-48 h-32">
                             <img
-                              src={thumbnailUrl}
+                              src={article.thumbnail}
                               alt={article.title}
                               className="w-full h-full object-cover rounded-lg"
                             />
@@ -93,7 +75,7 @@ export default function Home() {
                             {article.title}
                           </h2>
                           <p className="text-gray-600 mb-4 line-clamp-2">
-                            {article.content.replace(/<[^>]*>/g, '')}
+                            {article.summary}
                           </p>
                           <time className="text-sm text-gray-500">
                             {isValidDate
