@@ -1,46 +1,26 @@
 import Link from 'next/link';
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
-import { getAbsoluteUrl } from '@/lib/utils';
-
-interface Article {
-  id: string;
-  title: string;
-  summary: string;
-  thumbnail: string | null;
-  created_at: string;
-}
-
-async function getArticles(): Promise<Article[]> {
-  const res = await fetch(getAbsoluteUrl('/api/articles'), {
-    cache: 'no-store', // 페이지 레벨에서는 캐시하지 않고, API 라우트의 캐시를 사용
-  });
-
-  if (!res.ok) {
-    const errorBody = await res.text();
-    console.error(`API response not OK: ${res.status} ${res.statusText}`, { body: errorBody });
-    throw new Error(`Failed to fetch articles. Status: ${res.status}, Body: ${errorBody}`);
-  }
-
-  return res.json();
-}
+import { getArticles, Article } from '@/lib/data';
 
 export default async function Home() {
-  let articles: Article[] = [];
+  let articles: Omit<Article, 'content'>[] = [];
   let error: string | null = null;
 
   try {
     articles = await getArticles();
-  } catch (err) {
-    console.error('Error fetching articles:', err);
-    error = '기사를 불러오는데 실패했습니다.';
+  } catch (e) {
+    console.error('Error fetching articles directly from Supabase:', e);
+    error = 'Failed to load articles. Please try again later.';
   }
   
   if (error) {
     return (
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center text-red-500 py-8">{error}</div>
+          <div className="text-center text-red-500 bg-red-100 p-4 rounded-md">
+            <p><strong>Error:</strong> {error}</p>
+          </div>
         </div>
       </main>
     );
@@ -54,7 +34,7 @@ export default async function Home() {
           {articles.length === 0 ? (
             <p className="text-gray-500 text-center py-8">등록된 기사가 없습니다.</p>
           ) : (
-            articles.map((article: Article) => {
+            articles.map((article) => {
               const isValidDate = article.created_at && !isNaN(new Date(article.created_at).getTime());
 
               return (

@@ -4,49 +4,44 @@ import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
-import NewsList from './NewsList'; // 클라이언트 컴포넌트를 임포트
-import { getAbsoluteUrl } from '@/lib/utils';
-
-interface Article {
-  id: string;
-  title: string;
-  summary: string;
-  thumbnail: string | null;
-  created_at: string;
-}
-
-async function getArticles(): Promise<Article[]> {
-  const res = await fetch(getAbsoluteUrl('/api/articles'), {
-    cache: 'no-store', // 페이지 레벨에서는 캐시하지 않고, API 라우트의 캐시를 사용
-  });
-
-  if (!res.ok) {
-    const errorBody = await res.text();
-    console.error(`API response not OK: ${res.status} ${res.statusText}`, { body: errorBody });
-    throw new Error(`Failed to fetch articles. Status: ${res.status}, Body: ${errorBody}`);
-  }
-  return res.json();
-}
+import NewsList from './NewsList';
+import { getArticles, Article } from '@/lib/data';
 
 export default async function NewsPage() {
   const session = await getServerSession(authOptions);
-  let articles: Article[] = [];
+  let articles: Omit<Article, 'content'>[] = [];
   let error: string | null = null;
 
   try {
     articles = await getArticles();
-  } catch (err) {
-    console.error('Error fetching articles:', err);
-    error = '기사를 불러오는데 실패했습니다.';
-  }
-
-  if (error) {
-    return <div className="container mx-auto py-8 text-center text-red-500">{error}</div>;
+  } catch (e: any) {
+    console.error('Error fetching articles directly from Supabase:', e);
+    error = 'Failed to load articles. Please try again later.';
   }
 
   return (
-    <div className="container mx-auto py-8">
-      <NewsList articles={articles} session={session} />
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-bold">News</h1>
+        {session && (
+          <a
+            href="/news/create"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Create Article
+          </a>
+        )}
+      </div>
+      {error ? (
+        <div className="text-red-500 bg-red-100 p-4 rounded-md">
+          <p>
+            <strong>Error:</strong> Failed to load articles.
+          </p>
+          <p className="text-sm mt-2">{error}</p>
+        </div>
+      ) : (
+        <NewsList articles={articles} session={session} />
+      )}
     </div>
   );
-} 
+}
