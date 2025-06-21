@@ -1,36 +1,31 @@
 'use client';
 
-'use client';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter, usePathname } from 'next/navigation';
-import { Menu, LogOut } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Menu } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Editor } from './Editor';
-import { useToast } from '@/components/ui/use-toast';
-import { useSession, signOut } from 'next-auth/react';
+import type { Session } from 'next-auth';
+import AuthButton from './AuthButton';
+import dynamic from 'next/dynamic';
 
-const Header = () => {
-  const router = useRouter();
+// Dynamically import the editor component to avoid pulling it into the main bundle.
+// The editor will only be loaded when the 'Create Article' dialog is opened.
+const NewArticleEditor = dynamic(
+  () => import('./NewArticleEditor').then((mod) => mod.NewArticleEditor),
+  {
+    ssr: false, // The editor is client-side only and depends on browser APIs.
+    loading: () => <div className="p-4 text-center">에디터를 불러오는 중...</div>,
+  }
+);
+
+const Header = ({ session }: { session: Session | null }) => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
-  const { data: session, status } = useSession();
-
-
-  const handleLogout = async () => {
-    try {
-      await signOut({ redirect: false });
-      router.push('/');
-      router.refresh();
-    } catch (error) {
-      console.error('Logout error:', error);
-    }
-  };
 
   const isActive = (path: string) => {
     return pathname === path;
@@ -80,7 +75,7 @@ const Header = () => {
 
         {/* Right Section: Actions */}
         <div className="flex items-center justify-end">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             {session && (
               <Dialog open={isEditorOpen} onOpenChange={setIsEditorOpen}>
                 <DialogTrigger asChild>
@@ -95,31 +90,13 @@ const Header = () => {
                 <DialogContent className="max-w-4xl p-0" onInteractOutside={(e) => e.preventDefault()}>
                   <DialogTitle className="p-4 pb-0">새 기사 작성</DialogTitle>
                   <div className="p-4 pt-2">
-                    <NewArticleEditor onSaveSuccess={() => setIsEditorOpen(false)} />
+                    {/* Render the editor only when the dialog is open to enable dynamic loading */}
+                    {isEditorOpen && <NewArticleEditor onSaveSuccess={() => setIsEditorOpen(false)} />}
                   </div>
                 </DialogContent>
               </Dialog>
             )}
-            {status === 'authenticated' && session ? (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleLogout}
-                className="flex items-center gap-2"
-              >
-                <LogOut className="h-4 w-4" />
-                Logout
-              </Button>
-            ) : (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => router.push('/login')}
-                className="flex items-center gap-2"
-              >
-                Login
-              </Button>
-            )}
+            <AuthButton />
           </div>
         </div>
       </div>
@@ -144,7 +121,7 @@ const Header = () => {
                 뉴스
               </Link>
 
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4" onClick={() => setIsMenuOpen(false)}>
                 {session && (
                   <Dialog open={isEditorOpen} onOpenChange={setIsEditorOpen}>
                     <DialogTrigger asChild>
@@ -152,7 +129,6 @@ const Header = () => {
                         variant="default"
                         size="sm"
                         className="flex items-center gap-2"
-                        onClick={() => setIsMenuOpen(false)}
                       >
                         기사 작성
                       </Button>
@@ -160,88 +136,18 @@ const Header = () => {
                     <DialogContent className="max-w-4xl p-0" onInteractOutside={(e) => e.preventDefault()}>
                       <DialogTitle className="p-4 pb-0">새 기사 작성</DialogTitle>
                       <div className="p-4 pt-2">
-                        <NewArticleEditor onSaveSuccess={() => setIsEditorOpen(false)} />
+                        {isEditorOpen && <NewArticleEditor onSaveSuccess={() => setIsEditorOpen(false)} />}
                       </div>
                     </DialogContent>
                   </Dialog>
                 )}
-                {status === 'authenticated' && session ? (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => {
-                      handleLogout();
-                      setIsMenuOpen(false);
-                    }}
-                    className="flex items-center gap-2"
-                  >
-                    <LogOut className="h-4 w-4" />
-                    Logout
-                  </Button>
-                ) : (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => {
-                      router.push('/login');
-                      setIsMenuOpen(false);
-                    }}
-                    className="flex items-center gap-2"
-                  >
-                    Login
-                  </Button>
-                )}
+                <AuthButton />
               </div>
             </div>
           </nav>
         </div>
       )}
     </Card>
-  );
-};
-
-const NewArticleEditor = ({ onSaveSuccess }: { onSaveSuccess: () => void }) => {
-  const router = useRouter();
-  const { toast } = useToast();
-  const [isSaving, setIsSaving] = useState(false);
-
-  const handleSave = async (data: { title: string; content: string }) => {
-    setIsSaving(true);
-    try {
-      const response = await fetch('/api/articles', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to save article');
-      }
-
-      toast({ title: '성공', description: '기사가 성공적으로 저장되었습니다.' });
-      router.refresh();
-      onSaveSuccess();
-    } catch (error) {
-      console.error('Save error:', error);
-      const message = error instanceof Error ? error.message : '기사 저장 중 오류가 발생했습니다.';
-      toast({
-        title: '저장 실패',
-        description: message,
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSaving(false);
-    }
-  };
-
-  return (
-    <Editor
-      onSave={handleSave}
-      isSaving={isSaving}
-      onCancel={onSaveSuccess} // Close dialog on cancel
-      saveButtonText="기사 저장"
-    />
   );
 };
 

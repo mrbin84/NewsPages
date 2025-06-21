@@ -16,42 +16,20 @@ export interface Article {
 // 이는 fetch의 revalidate 옵션과 동일한 효과를 냅니다.
 export const getArticles = unstable_cache(
   async (): Promise<Omit<Article, 'content'>[]> => {
+    // Select only the necessary fields for the list, excluding the large 'content' field.
+    // This prevents the Next.js data cache from exceeding its 2MB limit.
     const { data: articles, error } = await supabase
       .from('articles')
-      .select('id, title, created_at, updated_at, content')
+      .select('id, title, summary, thumbnail, created_at, updated_at')
       .order('created_at', { ascending: false });
 
     if (error) {
       console.error('Error fetching articles from Supabase:', error);
-      // 실제 운영 환경에서는 더 구체적인 오류 처리가 필요합니다.
       throw new Error('Supabase query failed');
     }
 
-    if (!articles) {
-      return [];
-    }
-
-    const processedArticles = articles.map(article => {
-      let thumbnail = null;
-      let summary = '';
-
-      if (article.content) {
-        const imgMatch = article.content.match(/<img[^>]+src="([^" >]+)"/);
-        thumbnail = imgMatch ? imgMatch[1] : null;
-        summary = article.content.replace(/<[^>]*>/g, '').substring(0, 150);
-      }
-      
-      return {
-        id: article.id,
-        title: article.title,
-        created_at: article.created_at,
-        updated_at: article.updated_at,
-        thumbnail,
-        summary,
-      };
-    });
-
-    return processedArticles;
+    // The database now provides the summary and thumbnail directly.
+    return articles || [];
   },
   ['articles'], // 캐시를 위한 고유 키
   { 

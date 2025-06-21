@@ -9,14 +9,7 @@ import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
 import { Session } from 'next-auth';
 import { useRouter } from 'next/navigation';
-
-interface Article {
-  id: string;
-  title: string;
-  summary: string;
-  thumbnail: string | null;
-  created_at: string;
-}
+import { Article } from '@/lib/data';
 
 interface NewsListProps {
   articles: Article[];

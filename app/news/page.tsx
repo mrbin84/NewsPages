@@ -23,14 +23,7 @@ export default async function NewsPage() {
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">News</h1>
-        {session && (
-          <a
-            href="/news/create"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Create Article
-          </a>
-        )}
+
       </div>
       {error ? (
         <div className="text-red-500 bg-red-100 p-4 rounded-md">

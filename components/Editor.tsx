@@ -30,6 +30,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { EditorView } from '@tiptap/pm/view';
 import { EmojiPicker } from '@/components/EmojiPicker';
 
+
 interface EditorProps {
   initialTitle?: string;
   initialContent?: string;
@@ -58,33 +59,68 @@ export function Editor({
     setTitle(initialTitle);
   }, [initialTitle]);
 
-    const handleFile = useCallback((file: File, view: EditorView, coordinates?: { pos: number; inside: number } | null) => {
-    if (!file.type.startsWith('image/')) {
-      toast({ title: '이미지 파일만 업로드 가능합니다.', variant: 'destructive' });
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = (readerEvent) => {
-      const src = readerEvent.target?.result as string;
-      const { schema } = view.state;
-      const node = schema.nodes.image.create({ src });
-
-      let transaction;
-      if (coordinates) {
-        transaction = view.state.tr.insert(coordinates.pos, node);
-      } else {
-        transaction = view.state.tr.replaceSelectionWith(node);
+    const handleFile = useCallback(async (file: File, view: EditorView, coordinates?: { pos: number; inside: number } | null) => {
+      if (!file.type.startsWith('image/')) {
+        toast({ title: '이미지 파일만 업로드 가능합니다.', variant: 'destructive' });
+        return;
       }
-      view.dispatch(transaction);
-    };
-        reader.readAsDataURL(file);
-  }, [toast]);
+
+      const { id, update } = toast({
+        title: '이미지를 업로드하는 중...',
+        description: '잠시만 기다려주세요.',
+      });
+
+      try {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const response = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || '이미지 업로드에 실패했습니다.');
+        }
+
+        const { url: src } = await response.json();
+
+        const { schema } = view.state;
+        const node = schema.nodes.image.create({ src });
+
+        let transaction;
+        if (coordinates) {
+          transaction = view.state.tr.insert(coordinates.pos, node);
+        } else {
+          transaction = view.state.tr.replaceSelectionWith(node);
+        }
+        view.dispatch(transaction);
+
+        update({
+          id: id,
+          title: '업로드 성공',
+          description: '이미지가 성공적으로 추가되었습니다.',
+        });
+
+      } catch (error: any) {
+        console.error('Image upload error:', error);
+        update({
+          id: id,
+          title: '업로드 실패',
+          description: error.message || '알 수 없는 오류가 발생했습니다.',
+          variant: 'destructive',
+        });
+      }
+    }, [toast]);
 
   const editor = useEditor({
     extensions: [
       StarterKit,
       Image.configure({
-        allowBase64: true,
+        // Base64 인코딩을 비활성화하여, 모든 이미지가 서버에 업로드되도록 강제합니다.
+        // 이렇게 하면 DB에 큰 텍스트 덩어리가 저장되는 것을 막아 캐시 오류를 해결합니다.
+        allowBase64: false,
       }),
       ImageResize,
       TextAlign.configure({
