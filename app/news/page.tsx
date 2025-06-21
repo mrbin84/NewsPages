@@ -17,11 +17,13 @@ interface Article {
 
 async function getArticles(): Promise<Article[]> {
   const res = await fetch(getAbsoluteUrl('/api/articles'), {
-    next: { revalidate: 3600 }, // 1시간 캐시
+    cache: 'no-store', // 페이지 레벨에서는 캐시하지 않고, API 라우트의 캐시를 사용
   });
 
   if (!res.ok) {
-    throw new Error('Failed to fetch articles');
+    const errorBody = await res.text();
+    console.error(`API response not OK: ${res.status} ${res.statusText}`, { body: errorBody });
+    throw new Error(`Failed to fetch articles. Status: ${res.status}, Body: ${errorBody}`);
   }
   return res.json();
 }

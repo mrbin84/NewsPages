@@ -73,13 +73,7 @@ const Header = () => {
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <Link href="/" className="flex items-center space-x-2">
             <div className="relative w-[160px] h-[40px]">
-              <Image
-                src="/images/logo.png"
-                alt="BizFocus Logo"
-                fill
-                style={{ objectFit: 'contain' }}
-                priority
-              />
+              <Image src="/images/logo.png" alt="BizFocus Logo" fill sizes="160px" style={{ objectFit: 'contain' }} priority />
             </div>
           </Link>
         </div>
