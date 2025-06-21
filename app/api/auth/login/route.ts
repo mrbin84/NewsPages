@@ -3,7 +3,7 @@ import { sign } from 'jsonwebtoken';
 
 // 실제 프로덕션에서는 환경 변수로 관리해야 합니다
 const JWT_SECRET = 'your-secret-key';
-const ADMIN_EMAIL = 'admin@newsread.com';
+const ADMIN_EMAIL = 'admin@bizfocus.com';
 const ADMIN_PASSWORD = 'admin1234';
 
 export async function POST(request: Request) {

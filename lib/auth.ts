@@ -33,12 +33,12 @@ export const authOptions: NextAuthOptions = {
         }
 
         if (
-          credentials.email === 'admin@newsread.com' &&
+          credentials.email === 'admin@bizfocus.com' &&
           credentials.password === 'admin1234'
         ) {
           return {
             id: '1',
-            email: 'admin@newsread.com',
+            email: 'admin@bizfocus.com',
             name: 'Admin'
           };
         }

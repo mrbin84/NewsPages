@@ -191,7 +191,7 @@ export function Editor({
   }
 
   return (
-    <div className="flex flex-col h-full max-h-[85vh]">
+    <div className="flex flex-col h-[70vh] max-h-[85vh]">
       <div className="p-2 flex-shrink-0">
         <Input
           value={title}

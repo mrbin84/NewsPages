@@ -7,7 +7,7 @@ import { Providers } from '@/components/Providers';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NewsRead",
+  title: "BizFocus",
   description: "뉴스 기사 작성 및 관리 시스템",
 };
 

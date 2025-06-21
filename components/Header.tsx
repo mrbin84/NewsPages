@@ -72,10 +72,10 @@ const Header = () => {
         {/* Center Section: Logo */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="relative w-[130px] h-[33px]">
+            <div className="relative w-[160px] h-[40px]">
               <Image
                 src="/images/logo.png"
-                alt="NewsRead Logo"
+                alt="BizFocus Logo"
                 fill
                 style={{ objectFit: 'contain' }}
                 priority
@@ -98,7 +98,7 @@ const Header = () => {
                     기사 작성
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-4xl p-0">
+                <DialogContent className="max-w-4xl p-0" onInteractOutside={(e) => e.preventDefault()}>
                   <DialogTitle className="p-4 pb-0">새 기사 작성</DialogTitle>
                   <div className="p-4 pt-2">
                     <NewArticleEditor onSaveSuccess={() => setIsEditorOpen(false)} />
@@ -163,7 +163,7 @@ const Header = () => {
                         기사 작성
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl p-0">
+                    <DialogContent className="max-w-4xl p-0" onInteractOutside={(e) => e.preventDefault()}>
                       <DialogTitle className="p-4 pb-0">새 기사 작성</DialogTitle>
                       <div className="p-4 pt-2">
                         <NewArticleEditor onSaveSuccess={() => setIsEditorOpen(false)} />
