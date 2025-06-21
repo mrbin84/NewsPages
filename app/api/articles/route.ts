@@ -19,9 +19,14 @@ export async function GET() {
     }
 
     const processedArticles = articles.map(article => {
-      const imgMatch = article.content.match(/<img[^>]+src="([^" >]+)"/);
-      const thumbnail = imgMatch ? imgMatch[1] : null;
-      const summary = article.content.replace(/<[^>]*>/g, '').substring(0, 150);
+      let thumbnail = null;
+      let summary = '';
+
+      if (article.content) {
+        const imgMatch = article.content.match(/<img[^>]+src="([^" >]+)"/);
+        thumbnail = imgMatch ? imgMatch[1] : null;
+        summary = article.content.replace(/<[^>]*>/g, '').substring(0, 150);
+      }
       
       return {
         id: article.id,
