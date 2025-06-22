@@ -1,6 +1,6 @@
 // scripts/create-user.ts
 import { createClient } from '@supabase/supabase-js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 
 // .env.local 파일 로딩을 디버깅하기 위해 로그를 추가합니다.
