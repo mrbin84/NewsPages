@@ -22,6 +22,9 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
+  // 이전 페이지 URL을 가져옵니다
+  const callbackUrl = searchParams.get('callbackUrl') || '/';
+
   useEffect(() => {
     const errorParam = searchParams.get('error');
     if (errorParam && errorMessages[errorParam]) {
@@ -39,7 +42,7 @@ export default function LoginPage() {
     await signIn('credentials', {
       email,
       password,
-      callbackUrl: '/', // 성공 시 홈으로 리디렉션
+      callbackUrl, // 이전 페이지 URL로 리디렉션
     });
 
     // 리디렉션으로 인해 이 코드는 실패 시 도달하지 않을 수 있습니다.

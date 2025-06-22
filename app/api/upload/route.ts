@@ -1,59 +1,45 @@
 import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
+import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import { supabase } from '@/lib/supabase';
-import sharp from 'sharp';
-import { v4 as uuidv4 } from 'uuid';
 
 export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   try {
+    // 인증 확인
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      return NextResponse.json(
+        { error: 'Authentication required' },
+        { status: 401 }
+      );
+    }
+
     const formData = await request.formData();
     const file = formData.get('file') as File;
 
     if (!file) {
-      return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'No file provided' },
+        { status: 400 }
+      );
     }
 
+    // 이미지 파일 타입 확인
     if (!file.type.startsWith('image/')) {
-      return NextResponse.json({ error: 'Only image files are allowed' }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Only image files are allowed' },
+        { status: 400 }
+      );
     }
 
-    const inputBuffer = Buffer.from(await file.arrayBuffer());
+    // 이미지 업로드 처리
+    const { uploadImage } = await import('@/lib/imageUtils');
+    const imageUrl = await uploadImage(file);
 
-    // Optimize image with sharp
-    const optimizedBuffer = await sharp(inputBuffer)
-      .resize({ width: 800, withoutEnlargement: true }) // Max width 800px, don't enlarge
-      .webp({ quality: 80 }) // Convert to WebP with 80% quality
-      .toBuffer();
-
-    const fileName = `${uuidv4()}.webp`;
-    const { data, error } = await supabase.storage
-      .from('images') // Ensure you have a 'images' bucket in Supabase
-      .upload(fileName, optimizedBuffer, {
-        contentType: 'image/webp',
-        upsert: false,
-      });
-
-    if (error) {
-      console.error('Error uploading to Supabase Storage:', error);
-      throw new Error('Failed to upload to storage.');
-    }
-
-    const { data: { publicUrl } } = supabase.storage
-      .from('images')
-      .getPublicUrl(fileName);
-
-    return NextResponse.json({ url: publicUrl });
-
+    return NextResponse.json({ url: imageUrl });
   } catch (error) {
-    console.error('Error in image upload API:', error);
+    console.error('Upload error:', error);
     return NextResponse.json(
-      { error: 'Internal Server Error' },
+      { error: 'Failed to upload image' },
       { status: 500 }
     );
   }

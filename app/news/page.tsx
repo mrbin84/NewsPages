@@ -5,15 +5,15 @@ import { ko } from 'date-fns/locale';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import NewsList from './NewsList';
-import { getArticles, Article } from '@/lib/data';
+import { getArticlePreviews, ArticlePreview } from '@/lib/data';
 
 export default async function NewsPage() {
   const session = await getServerSession(authOptions);
-  let articles: Omit<Article, 'content'>[] = [];
+  let articles: ArticlePreview[] = [];
   let error: string | null = null;
 
   try {
-    articles = await getArticles();
+    articles = await getArticlePreviews();
   } catch (e: any) {
     console.error('Error fetching articles directly from Supabase:', e);
     error = 'Failed to load articles. Please try again later.';
@@ -21,10 +21,7 @@ export default async function NewsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold">News</h1>
-
-      </div>
+      <div className="flex justify-between items-center mb-8"></div>
       {error ? (
         <div className="text-red-500 bg-red-100 p-4 rounded-md">
           <p>
