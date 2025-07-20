@@ -18,7 +18,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
     notFound();
   }
 
-  const isValidDate = article.created_at && !isNaN(new Date(article.created_at).getTime());
+  const isValidDate = Boolean(article.created_at && !isNaN(new Date(article.created_at).getTime()));
 
   return (
     <NewsDetailClient 
