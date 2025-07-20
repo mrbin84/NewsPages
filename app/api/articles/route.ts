@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
+import { extractFirstImageUrl } from '@/lib/data';
 
 // POST a new article
 export async function POST(request: Request) {
@@ -18,9 +19,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Title and content are required' }, { status: 400 });
     }
 
+    // 콘텐츠에서 첫 번째 이미지를 추출하여 썸네일로 설정
+    const thumbnail = extractFirstImageUrl(content);
+
     const newArticle = {
       title,
       content,
+      thumbnail,
       author: session.user?.email,
     };
 

@@ -2,6 +2,7 @@ import { NextResponse, NextRequest } from 'next/server';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
+import { extractFirstImageUrl } from '@/lib/data';
 
 export const dynamic = 'force-dynamic';
 
@@ -46,9 +47,12 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
       return NextResponse.json({ message: 'Title and content are required' }, { status: 400 });
     }
 
+    // 콘텐츠에서 첫 번째 이미지를 추출하여 썸네일로 설정
+    const thumbnail = extractFirstImageUrl(content);
+
     const { data, error } = await supabase
       .from('articles')
-      .update({ title, content, updated_at: new Date().toISOString() })
+      .update({ title, content, thumbnail, updated_at: new Date().toISOString() })
       .eq('id', params.id)
       .select()
       .single();

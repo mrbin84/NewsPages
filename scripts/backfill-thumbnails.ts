@@ -1,13 +1,28 @@
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
-import { extractFirstImageUrl } from '../lib/data';
 
 // .env.local 파일 로딩
 dotenv.config({ path: '.env.local' });
 
+// HTML 컨텐츠에서 첫 번째 이미지 URL을 추출하는 함수
+function extractFirstImageUrl(content: string): string | null {
+  const imgRegex = /<img[^>]+src="([^">]+)"/i;
+  const match = content.match(imgRegex);
+  
+  if (match && match[1]) {
+    const src = match[1];
+    // 유효한 이미지 src인지 확인
+    if (src.startsWith('data:image/') || src.startsWith('http') || src.startsWith('/')) {
+      return src;
+    }
+  }
+  
+  return null;
+}
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
 async function backfillThumbnails() {

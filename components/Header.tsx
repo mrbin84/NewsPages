@@ -61,25 +61,11 @@ const Header = ({ session }: { session: Session | null }) => {
           >
             전체기사
           </Link>
-          <span className="text-foreground/70 cursor-pointer hover:text-coinreaders-blue">
-            Breaking News
-          </span>
-          <span className="text-foreground/70 cursor-pointer hover:text-coinreaders-blue">
-            많이 본 뉴스
-          </span>
         </nav>
 
         {/* Right Section: Actions */}
         <div className="flex items-center justify-end ml-auto">
           <div className="flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
-            
             {session && (
               <Dialog open={isEditorOpen} onOpenChange={setIsEditorOpen}>
                 <DialogTrigger asChild>
@@ -98,6 +84,17 @@ const Header = ({ session }: { session: Session | null }) => {
                 </DialogContent>
               </Dialog>
             )}
+            <div className="hidden md:block">
+              <AuthButton />
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden"
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
           </div>
         </div>
       </div>
@@ -125,17 +122,8 @@ const Header = ({ session }: { session: Session | null }) => {
               >
                 전체기사
               </Link>
-              <span className="text-sm font-medium text-foreground/70 px-4 py-2 rounded hover:text-coinreaders-blue cursor-pointer">
-                Breaking News
-              </span>
-              <span className="text-sm font-medium text-foreground/70 px-4 py-2 rounded hover:text-coinreaders-blue cursor-pointer">
-                많이 본 뉴스
-              </span>
 
               <div className="flex flex-col gap-3 pt-4 border-t border-gray-200">
-                <div className="px-4">
-                  <span className="text-xs text-gray-400 uppercase tracking-wide">관리</span>
-                </div>
                 {session && (
                   <Dialog open={isEditorOpen} onOpenChange={setIsEditorOpen}>
                     <DialogTrigger asChild>

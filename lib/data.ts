@@ -41,6 +41,11 @@ export function extractFirstImageUrl(content: string): string | null {
 function getStorageUrl(path: string | null): string | null {
   if (!path) return null;
   
+  // Base64 이미지인 경우 그대로 반환
+  if (path.startsWith('data:image/')) {
+    return path;
+  }
+  
   // 이미 완전한 URL인 경우 그대로 반환
   if (path.startsWith('http://') || path.startsWith('https://')) {
     return path;
@@ -60,7 +65,7 @@ export async function getArticlePreviews(limit: number = 13): Promise<ArticlePre
       // 환경 변수 확인
       if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
         console.error('Missing Supabase environment variables');
-        throw new Error('Supabase configuration is missing');
+        return [];
       }
 
       const { data: articles, error } = await supabase
@@ -71,7 +76,7 @@ export async function getArticlePreviews(limit: number = 13): Promise<ArticlePre
 
       if (error) {
         console.error('Error fetching article previews:', error);
-        throw new Error(`Supabase query failed: ${error.message}`);
+        return [];
       }
 
       // thumbnail URL 처리
@@ -123,8 +128,11 @@ export const getMoreArticlePreviews = unstable_cache(
 
       // thumbnail URL 처리
       const processedArticles = articles?.map(article => ({
-        ...article,
-        thumbnail: getStorageUrl(article.thumbnail)
+        id: article.id,
+        title: article.title,
+        thumbnail: getStorageUrl(article.thumbnail),
+        created_at: article.created_at,
+        view_count: article.view_count || 0
       })) || [];
 
       return processedArticles;

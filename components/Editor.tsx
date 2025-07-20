@@ -63,49 +63,57 @@ export function Editor({
         return;
       }
 
+      // 파일 크기 제한 (2MB)
+      if (file.size > 2 * 1024 * 1024) {
+        toast({ title: '이미지 크기는 2MB 이하로 제한됩니다.', variant: 'destructive' });
+        return;
+      }
+
       const { id, update } = toast({
-        title: '이미지를 업로드하는 중...',
+        title: '이미지를 처리하는 중...',
         description: '잠시만 기다려주세요.',
       });
 
       try {
-        const formData = new FormData();
-        formData.append('file', file);
+        // Base64로 변환
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const src = e.target?.result as string;
+          
+          const { schema } = view.state;
+          const node = schema.nodes.image.create({ src });
 
-        const response = await fetch('/api/upload', {
-          method: 'POST',
-          body: formData,
-        });
+          let transaction;
+          if (coordinates) {
+            transaction = view.state.tr.insert(coordinates.pos, node);
+          } else {
+            transaction = view.state.tr.replaceSelectionWith(node);
+          }
+          view.dispatch(transaction);
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || '이미지 업로드에 실패했습니다.');
-        }
+          update({
+            id: id,
+            title: '이미지 추가 완료',
+            description: '이미지가 성공적으로 추가되었습니다.',
+          });
+        };
 
-        const { url: src } = await response.json();
+        reader.onerror = () => {
+          update({
+            id: id,
+            title: '이미지 처리 실패',
+            description: '이미지를 읽을 수 없습니다.',
+            variant: 'destructive',
+          });
+        };
 
-        const { schema } = view.state;
-        const node = schema.nodes.image.create({ src });
-
-        let transaction;
-        if (coordinates) {
-          transaction = view.state.tr.insert(coordinates.pos, node);
-        } else {
-          transaction = view.state.tr.replaceSelectionWith(node);
-        }
-        view.dispatch(transaction);
-
-        update({
-          id: id,
-          title: '업로드 성공',
-          description: '이미지가 성공적으로 추가되었습니다.',
-        });
+        reader.readAsDataURL(file);
 
       } catch (error: any) {
-        console.error('Image upload error:', error);
+        console.error('Image processing error:', error);
         update({
           id: id,
-          title: '업로드 실패',
+          title: '이미지 처리 실패',
           description: error.message || '알 수 없는 오류가 발생했습니다.',
           variant: 'destructive',
         });

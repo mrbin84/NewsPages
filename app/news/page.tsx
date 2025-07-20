@@ -6,28 +6,20 @@ import { getArticlePreviews, ArticlePreview } from '@/lib/data';
 export default async function NewsPage() {
   const session = await getServerSession(authOptions);
   let articles: ArticlePreview[] = [];
-  let error: string | null = null;
 
   try {
-    articles = await getArticlePreviews();
+    articles = await getArticlePreviews(50); // 한 번에 50개만 로드
   } catch (e: any) {
-    console.error('Error fetching articles directly from Supabase:', e);
-    error = 'Failed to load articles. Please try again later.';
+    console.error('Error fetching articles:', e);
+    articles = []; // 에러시 빈 배열 반환
   }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8"></div>
-      {error ? (
-        <div className="text-red-500 bg-red-100 p-4 rounded-md">
-          <p>
-            <strong>Error:</strong> Failed to load articles.
-          </p>
-          <p className="text-sm mt-2">{error}</p>
-        </div>
-      ) : (
-        <NewsList articles={articles} session={session} />
-      )}
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold">전체 기사</h1>
+      </div>
+      <NewsList articles={articles} session={session} />
     </div>
   );
 }

@@ -17,10 +17,48 @@ interface NewsListProps {
   session: Session | null;
 }
 
+function LazyImage({ src, alt, className }: { src: string; alt: string; className: string }) {
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    console.error('Image failed to load:', src?.substring(0, 100));
+    setImageError(true);
+  };
+
+  return (
+    <div className={className}>
+      {imageError ? (
+        <div className="w-full h-full bg-red-100 flex items-center justify-center text-red-500 text-xs">
+          Error
+        </div>
+      ) : src.startsWith('data:image/') ? (
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+          loading="lazy"
+          onError={handleImageError}
+        />
+      ) : (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover"
+          sizes="64px"
+          priority={false}
+          loading="lazy"
+          onError={handleImageError}
+        />
+      )}
+    </div>
+  );
+}
+
 export default function NewsList({ articles: initialArticles, session }: NewsListProps) {
   const { toast } = useToast();
   const router = useRouter();
-  const [articles, setArticles] = useState(initialArticles);
+  const [articles, setArticles] = useState(initialArticles || []);
   const [isDeleteMode, setIsDeleteMode] = useState(false);
 
   const handleDelete = async (id: string) => {
@@ -72,16 +110,12 @@ export default function NewsList({ articles: initialArticles, session }: NewsLis
                   <Card className="hover:bg-accent transition-colors">
                     <CardContent className="p-3">
                       <div className="flex gap-3 items-center">
-                        <div className="flex-shrink-0 relative w-12 h-12 bg-muted rounded overflow-hidden">
+                        <div className="flex-shrink-0 relative w-16 h-16 bg-muted rounded overflow-hidden">
                           {article.thumbnail ? (
-                            <Image
+                            <LazyImage
                               src={article.thumbnail}
                               alt={article.title}
-                              fill
-                              className="object-cover"
-                              sizes="48px"
-                              priority={false}
-                              loading="lazy"
+                              className="w-full h-full"
                             />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center text-muted-foreground text-xs">
