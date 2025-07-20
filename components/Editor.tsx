@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
@@ -118,9 +116,10 @@ export function Editor({
     extensions: [
       StarterKit,
       Image.configure({
-        // Base64 인코딩을 비활성화하여, 모든 이미지가 서버에 업로드되도록 강제합니다.
-        // 이렇게 하면 DB에 큰 텍스트 덩어리가 저장되는 것을 막아 캐시 오류를 해결합니다.
-        allowBase64: false,
+        allowBase64: true,
+        HTMLAttributes: {
+          class: 'max-w-full h-auto',
+        },
       }),
       ImageResize,
       TextAlign.configure({
@@ -159,34 +158,8 @@ export function Editor({
             event.preventDefault();
             const imageFiles = imageItems.map(item => item.getAsFile()).filter((file): file is File => file !== null);
             
-            const readFilesAsDataUrls = (files: File[]): Promise<string[]> => {
-              return Promise.all(files.map(file => {
-                return new Promise<string>((resolve, reject) => {
-                  const reader = new FileReader();
-                  reader.onload = () => resolve(reader.result as string);
-                  reader.onerror = () => reject(reader.error);
-                  reader.readAsDataURL(file);
-                });
-              }));
-            };
-
-            readFilesAsDataUrls(imageFiles).then(urls => {
-              const { schema, tr } = view.state;
-              urls.forEach(src => {
-                const node = schema.nodes.image.create({ src });
-                tr.insert(tr.selection.from, node);
-              });
-              view.dispatch(tr);
-            });
-
-            const textItem = items.find(item => item.type === 'text/plain');
-            if (textItem) {
-              textItem.getAsString(text => {
-                const { tr } = view.state;
-                tr.insertText(text);
-                view.dispatch(tr);
-              });
-            }
+            // handleFile 함수를 사용하여 이미지를 서버에 업로드
+            imageFiles.forEach(file => handleFile(file, view));
             return true;
           }
           return false;

@@ -1,0 +1,1604 @@
+
+> newspages@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.30
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1232ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1471ms (2012 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET / 200 in 1674ms
+ ✓ Compiled in 619ms (546 modules)
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error decryption operation failed {
+  message: 'decryption operation failed',
+  stack: 'JWEDecryptionFailed: decryption operation failed\n' +
+    '    at gcmDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/runtime/decrypt.js:67:15)\n' +
+    '    at decrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/runtime/decrypt.js:92:20)\n' +
+    '    at flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/jwe/flattened/decrypt.js:143:52)\n' +
+    '    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/jwe/compact/decrypt.js:18:23)\n' +
+    '    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/jwt/decrypt.js:8:23)\n' +
+    '    at async Object.decode (webpack-internal:///(rsc)/./node_modules/next-auth/jwt/index.js:56:7)\n' +
+    '    at async Object.session (webpack-internal:///(rsc)/./node_modules/next-auth/core/routes/session.js:39:28)\n' +
+    '    at async AuthHandler (webpack-internal:///(rsc)/./node_modules/next-auth/core/index.js:136:27)\n' +
+    '    at async getServerSession (webpack-internal:///(rsc)/./node_modules/next-auth/next/index.js:129:19)\n' +
+    '    at async RootLayout (webpack-internal:///(rsc)/./app/layout.tsx:28:21)',
+  name: 'JWEDecryptionFailed'
+}
+ GET / 200 in 64ms
+ ✓ Compiled /favicon.ico in 218ms (1470 modules)
+ ✓ Compiled (1500 modules)
+ GET /favicon.ico 200 in 518ms
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error decryption operation failed {
+  message: 'decryption operation failed',
+  stack: 'JWEDecryptionFailed: decryption operation failed\n' +
+    '    at gcmDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/runtime/decrypt.js:67:15)\n' +
+    '    at decrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/runtime/decrypt.js:92:20)\n' +
+    '    at flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/jwe/flattened/decrypt.js:143:52)\n' +
+    '    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/jwe/compact/decrypt.js:18:23)\n' +
+    '    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/jwt/decrypt.js:8:23)\n' +
+    '    at async Object.decode (webpack-internal:///(rsc)/./node_modules/next-auth/jwt/index.js:56:7)\n' +
+    '    at async Object.session (webpack-internal:///(rsc)/./node_modules/next-auth/core/routes/session.js:39:28)\n' +
+    '    at async AuthHandler (webpack-internal:///(rsc)/./node_modules/next-auth/core/index.js:136:27)\n' +
+    '    at async NextAuthRouteHandler (webpack-internal:///(rsc)/./node_modules/next-auth/next/index.js:57:28)\n' +
+    '    at async NextAuth._args$ (webpack-internal:///(rsc)/./node_modules/next-auth/next/index.js:89:16)\n' +
+    '    at async /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228\n' +
+    '    at async eT.execute (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)\n' +
+    '    at async eT.handle (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)\n' +
+    '    at async doRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1366:42)\n' +
+    '    at async cacheEntry.responseCache.get.routeKind (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1576:40)\n' +
+    '    at async DevServer.renderToResponseWithComponentsImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1496:28)\n' +
+    '    at async DevServer.renderPageComponent (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1924:24)\n' +
+    '    at async DevServer.renderToResponseImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1962:32)\n' +
+    '    at async DevServer.pipeImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:922:25)\n' +
+    '    at async NextNodeServer.handleCatchallRenderRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/next-server.js:272:17)\n' +
+    '    at async DevServer.handleRequestImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:818:17)\n' +
+    '    at async /Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:339:20\n' +
+    '    at async Span.traceAsyncFn (/Users/mielvida/code/NewsPages/node_modules/next/dist/trace/trace.js:154:20)\n' +
+    '    at async DevServer.handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:336:24)\n' +
+    '    at async invokeRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:179:21)\n' +
+    '    at async handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:359:24)\n' +
+    '    at async requestHandlerImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:383:13)\n' +
+    '    at async Server.requestListener (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/start-server.js:141:13)',
+  name: 'JWEDecryptionFailed'
+}
+ GET /api/auth/session 200 in 766ms
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error decryption operation failed {
+  message: 'decryption operation failed',
+  stack: 'JWEDecryptionFailed: decryption operation failed\n' +
+    '    at gcmDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/runtime/decrypt.js:67:15)\n' +
+    '    at decrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/runtime/decrypt.js:92:20)\n' +
+    '    at flattenedDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/jwe/flattened/decrypt.js:143:52)\n' +
+    '    at async compactDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/jwe/compact/decrypt.js:18:23)\n' +
+    '    at async jwtDecrypt (webpack-internal:///(rsc)/./node_modules/jose/dist/node/cjs/jwt/decrypt.js:8:23)\n' +
+    '    at async Object.decode (webpack-internal:///(rsc)/./node_modules/next-auth/jwt/index.js:56:7)\n' +
+    '    at async Object.session (webpack-internal:///(rsc)/./node_modules/next-auth/core/routes/session.js:39:28)\n' +
+    '    at async AuthHandler (webpack-internal:///(rsc)/./node_modules/next-auth/core/index.js:136:27)\n' +
+    '    at async NextAuthRouteHandler (webpack-internal:///(rsc)/./node_modules/next-auth/next/index.js:57:28)\n' +
+    '    at async NextAuth._args$ (webpack-internal:///(rsc)/./node_modules/next-auth/next/index.js:89:16)\n' +
+    '    at async /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228\n' +
+    '    at async eT.execute (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)\n' +
+    '    at async eT.handle (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)\n' +
+    '    at async doRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1366:42)\n' +
+    '    at async cacheEntry.responseCache.get.routeKind (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1576:40)\n' +
+    '    at async DevServer.renderToResponseWithComponentsImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1496:28)\n' +
+    '    at async DevServer.renderPageComponent (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1924:24)\n' +
+    '    at async DevServer.renderToResponseImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1962:32)\n' +
+    '    at async DevServer.pipeImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:922:25)\n' +
+    '    at async NextNodeServer.handleCatchallRenderRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/next-server.js:272:17)\n' +
+    '    at async DevServer.handleRequestImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:818:17)\n' +
+    '    at async /Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:339:20\n' +
+    '    at async Span.traceAsyncFn (/Users/mielvida/code/NewsPages/node_modules/next/dist/trace/trace.js:154:20)\n' +
+    '    at async DevServer.handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:336:24)\n' +
+    '    at async invokeRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:179:21)\n' +
+    '    at async handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:359:24)\n' +
+    '    at async requestHandlerImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:383:13)\n' +
+    '    at async Server.requestListener (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/start-server.js:141:13)',
+  name: 'JWEDecryptionFailed'
+}
+ GET /api/auth/session 200 in 5ms
+ ✓ Compiled /login in 236ms (2040 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/providers 200 in 17ms
+ GET /api/auth/csrf 200 in 6ms
+-> Temporary admin bypass activated!
+ POST /api/auth/callback/credentials 200 in 7ms
+ GET / 200 in 87ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/session 200 in 4ms
+ ✓ Compiled /news/[id] in 239ms (2050 modules)
+ ✓ Compiled /api/articles/[id] in 111ms (1534 modules)
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 1444ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 74ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 62ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 60ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 596ms
+ ✓ Compiled in 865ms (2056 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 111ms
+ ✓ Compiled in 265ms (2056 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 55ms
+ ✓ Compiled in 265ms (2056 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 18ms
+ GET / 200 in 72ms
+ ✓ Compiled /favicon.ico in 110ms (1481 modules)
+ ✓ Compiled (1511 modules)
+ GET /favicon.ico 200 in 348ms
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 364ms
+ GET /api/auth/session 200 in 2ms
+ ✓ Compiled /api/articles/[id] in 101ms (1534 modules)
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 229ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 66ms
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET / 200 in 94ms
+ GET /api/auth/session 200 in 8ms
+ GET /favicon.ico 200 in 9ms
+ GET /api/auth/session 200 in 10ms
+ GET / 200 in 110ms
+ GET /api/auth/session 200 in 11ms
+ GET /api/auth/session 200 in 11ms
+ GET /favicon.ico 200 in 10ms
+ GET /api/auth/session 200 in 8ms
+ GET /api/auth/session 200 in 8ms
+ GET / 200 in 364ms
+ GET /favicon.ico 200 in 11ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 76ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 82ms
+ GET /api/articles/20f73883-4f79-4f6a-aa2c-80f0412ed795 200 in 227ms
+ GET /api/articles/20f73883-4f79-4f6a-aa2c-80f0412ed795 200 in 183ms
+ ✓ Compiled /api/articles in 257ms (1536 modules)
+ GET /api/articles 405 in 316ms
+ ✓ Compiled in 364ms (1477 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error: Failed to set Next.js data cache, items over 2MB can not be cached (6596958 bytes)
+    at IncrementalCache.set (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/incremental-cache/index.js:388:23)
+    at cacheNewResult (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/unstable-cache.js:16:28)
+    at cachedCb (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/unstable-cache.js:160:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:32:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:46:33)
+ ⨯ unhandledRejection: Error: Failed to set Next.js data cache, items over 2MB can not be cached (6596958 bytes)
+    at IncrementalCache.set (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/incremental-cache/index.js:388:23)
+    at cacheNewResult (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/unstable-cache.js:16:28)
+    at cachedCb (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/unstable-cache.js:160:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:32:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:46:33)
+ ⨯ unhandledRejection: Error: Failed to set Next.js data cache, items over 2MB can not be cached (6596958 bytes)
+    at IncrementalCache.set (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/incremental-cache/index.js:388:23)
+    at cacheNewResult (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/unstable-cache.js:16:28)
+    at cachedCb (webpack-internal:///(rsc)/./node_modules/next/dist/server/web/spec-extension/unstable-cache.js:160:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:32:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:46:33)
+ GET /?_rsc=r3yhw 200 in 6926ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ⨯ ./lib/data.ts
+Error: 
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/Users/mielvida/code/NewsPages/lib/data.ts[0m:103:1]
+ [2m103[0m |       // 에러 발생 시 빈 배열 반환하여 앱이 크래시되지 않도록 함
+ [2m104[0m |       return [];
+ [2m105[0m |     }
+ [2m106[0m |   },
+     : [31;1m   ^[0m
+ [2m107[0m |   ['article-previews'],
+ [2m108[0m |   {
+ [2m109[0m |     revalidate: 3600,
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./lib/data.ts
+./app/page.tsx
+ ✓ Compiled in 81ms (1477 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 5870ms
+ ✓ Compiled in 119ms (1477 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ ✓ Compiled in 258ms (2030 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 15229ms
+ GET /?_rsc=r3yhw 200 in 45336ms
+ ✓ Compiled in 189ms (2030 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 5462ms
+ ✓ Compiled in 222ms (2030 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 13510ms
+ ✓ Compiled in 247ms (553 modules)
+ GET /?_rsc=r3yhw 200 in 12463ms
+ ✓ Compiled in 321ms (2030 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 4925ms
+ ✓ Compiled in 458ms (2030 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 6420ms
+ ✓ Compiled in 235ms (2030 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 7239ms
+ ✓ Compiled in 650ms (2024 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching article previews: {
+  message: 'TypeError: fetch failed',
+  details: 'TypeError: fetch failed\n' +
+    '    at node:internal/deps/undici/undici:13510:13\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:45:43)\n' +
+    '    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)\n' +
+    '    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)',
+  hint: '',
+  code: ''
+}
+Error in getArticlePreviews: Error: Supabase query failed: TypeError: fetch failed
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:50:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+Network error detected - Supabase project may be inactive or URL incorrect
+Error fetching articles: Error: Supabase 연결 실패: 프로젝트가 비활성 상태이거나 URL이 잘못되었습니다.
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:81:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ GET /?_rsc=r3yhw 200 in 10589ms
+ ✓ Compiled /api/auth/[...nextauth] in 376ms (1475 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 447ms
+ GET /api/auth/session 200 in 5ms
+ GET / 200 in 7789ms
+ ✓ Compiled /favicon.ico in 450ms (1505 modules)
+ GET /favicon.ico 200 in 533ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ HEAD / 200 in 68ms
+ GET /api/auth/session 200 in 7ms
+ GET /api/auth/session 200 in 4ms
+ GET / 200 in 6351ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ GET /favicon.ico 200 in 10ms
+ ✓ Compiled /api/articles/[id] in 331ms (1497 modules)
+ GET /api/articles/20f73883-4f79-4f6a-aa2c-80f0412ed795 200 in 1613ms
+ GET /api/articles/20f73883-4f79-4f6a-aa2c-80f0412ed795 200 in 507ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled /_not-found in 441ms (2037 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 592ms
+ ✓ Compiled in 295ms (2025 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 8319ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 49ms
+ ✓ Compiled /api/auth/[...nextauth] in 146ms (1476 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 191ms
+ GET /api/auth/session 200 in 194ms
+ GET / 200 in 5434ms
+ ✓ Compiled /favicon.ico in 227ms (1506 modules)
+ GET /favicon.ico 200 in 275ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled /api/articles/[id] in 110ms (1529 modules)
+ ⨯ Failed to generate static paths for /news/[id]:
+/Users/mielvida/code/NewsPages/.next/server/vendor-chunks/next.js:2593
+eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\n0 && (0);\nfunction _export(target, all) {\n    for(var name in all)Object.defineProperty(target, name, {\n        enumerable: true,\n        get: all[name]\n    });\n}\n_export(exports, {\n    ACTION_SUFFIX: function() {\n        return ACTION_SUFFIX;\n    },\n    APP_DIR_ALIAS: function() {\n        return APP_DIR_ALIAS;\n    },\n    CACHE_ONE_YEAR: function() {\n        return CACHE_ONE_YEAR;\n    },\n    DOT_NEXT_ALIAS: function() {\n        return DOT_NEXT_ALIAS;\n    },\n    ESLINT_DEFAULT_DIRS: function() {\n        return ESLINT_DEFAULT_DIRS;\n    },\n    GSP_NO_RETURNED_VALUE: function() {\n        return GSP_NO_RETURNED_VALUE;\n    },\n    GSSP_COMPONENT_MEMBER_ERROR: function() {\n        return GSSP_COMPONENT_MEMBER_ERROR;\n    },\n    GSSP_NO_RETURNED_VALUE: function() {\n        return GSSP_NO_RETURNED_VALUE;\n    },\n    INSTRUMENTATION_HOOK_FILENAME: function() {\n        return INSTRUMENTATION_HOOK_FILENAME;\n    },\n    MIDDLEWARE_FILENAME: function() {\n        return MIDDLEWARE_FILENAME;\n    },\n    MIDDLEWARE_LOCATION_REGEXP: function() {\n        return MIDDLEWARE_LOCATION_REGEXP;\n    },\n    NEXT_BODY_SUFFIX: function() {\n        return NEXT_BODY_SUFFIX;\n    },\n    NEXT_CACHE_IMPLICIT_TAG_ID: function() {\n        return NEXT_CACHE_IMPLICIT_TAG_ID;\n    },\n    NEXT_CACHE_REVALIDATED_TAGS_HEADER: function() {\n        return NEXT_CACHE_REVALIDATED_TAGS_HEADER;\n    },\n    NEXT_CACHE_REVALIDATE_TAG_TOKEN_HEADER: function() {\n        return NEXT_CACHE_REVALIDATE_TAG_TOKEN_HEADER;\n    },\n    NEXT_CACHE_SOFT_TAGS_HEADER: function() {\n        return NEXT_CACHE_SOFT_TAGS_HEADER;\n    },\n    NEXT_CACHE_SOFT_TAG_MAX_LENGTH: function() {\n        return NEXT_CACHE_SOFT_TAG_MAX_LENGTH;\n    },\n    NEXT_CACHE_TAGS_HEADER: function() {\n        return NEXT_CACHE_TAGS_HEADER;\n    },\n    NEXT_CACHE_TAG_MAX_ITEMS: function() {\n        return NEXT_CACHE_TAG_MAX_ITEMS;\n    },\n    NEXT_CACHE_TAG_MAX_LENGTH: function() {\n        return NEXT_CACHE_TAG_MAX_LENGTH;\n    },\n    NEXT_DATA_SUFFIX: function() {\n        return NEXT_DATA_SUFFIX;\n    },\n    NEXT_INTERCEPTION_MARKER_PREFIX: function() {\n        return NEXT_INTERCEPTION_MARKER_PREFIX;\n    },\n    NEXT_META_SUFFIX: function() {\n        return NEXT_META_SUFFIX;\n    },\n    NEXT_QUERY_PARAM_PREFIX: function() {\n        return NEXT_QUERY_PARAM_PREFIX;\n    },\n    NON_STANDARD_NODE_ENV: function() {\n        return NON_STANDARD_NODE_ENV;\n    },\n    PAGES_DIR_ALIAS: function() {\n        return PAGES_DIR_ALIAS;\n    },\n    PRERENDER_REVALIDATE_HEADER: function() {\n        return PRERENDER_REVALIDATE_HEADER;\n    },\n    PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER: function() {\n        return PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER;\n    },\n    PUBLIC_DIR_MIDDLEWARE_CONFLICT: function() {\n        return PUBLIC_DIR_MIDDLEWARE_CONFLICT;\n    },\n    ROOT_DIR_ALIAS: function() {\n        return ROOT_DIR_ALIAS;\n    },\n    RSC_ACTION_CLIENT_WRAPPER_ALIAS: function() {\n        return RSC_ACTION_CLIENT_WRAPPER_ALIAS;\n    },\n    RSC_ACTION_ENCRYPTION_ALIAS: function() {\n        return RSC_ACTION_ENCRYPTION_ALIAS;\n    },\n    RSC_ACTION_PROXY_ALIAS: function() {\n        return RSC_ACTION_PROXY_ALIAS;\n    },\n    RSC_ACTION_VALIDATE_ALIAS: function() {\n        return RSC_ACTION_VALIDATE_ALIAS;\n    },\n    RSC_MOD_REF_PROXY_ALIAS: function() {\n        return RSC_MOD_REF_PROXY_ALIAS;\n    },\n    RSC_PREFETCH_SUFFIX: function() {\n        return RSC_PREFETCH_SUFFIX;\n    },\n    RSC_SUFFIX: function() {\n        return RSC_SUFFIX;\n    },\n    SERVER_PROPS_EXPORT_ERROR: function() {\n        return SERVER_PROPS_EXPORT_ERROR;\n    },\n    SERVER_PROPS_GET_INIT_PROPS_CONFLICT: function() {\n        return SERVER_PROPS_GET_INIT_PROPS_CONFLICT;\n    },\n    SERVER_PROPS_SSG_CONFLICT: function() {\n        return SERVER_PROPS_SSG_CONFLICT;\n    },\n    SERVER_RUNTIME: function() {\n        return SERVER_RUNTIME;\n    },\n    SSG_FALLBACK_EXPORT_ERROR: function() {\n        return SSG_FALLBACK_EXPORT_ERROR;\n    },\n    SSG_GET_INITIAL_PROPS_CONFLICT: function() {\n        return SSG_GET_INITIAL_PROPS_CONFLICT;\n    },\n    STATIC_STATUS_PAGE_GET_INITIAL_PROPS_ERROR: function() {\n        return STATIC_STATUS_PAGE_GET_INITIAL_PROPS_ERROR;\n    },\n    UNSTABLE_REVALIDATE_RENAME_ERROR: function() {\n        return UNSTABLE_REVALIDATE_RENAME_ERROR;\n    },\n    WEBPACK_LAYERS: function() {\n        return WEBPACK_LAYERS;\n    },\n    WEBPACK_RESOURCE_QUERIES: function() {\n        return WEBPACK_RESOURCE_QUERIES;\n    }\n});\nconst NEXT_QUERY_PARAM_PREFIX = \"nxtP\";\nconst NEXT_INTERCEPTION_MARKER_PREFIX = \"nxtI\";\nconst PRERENDER_REVALIDATE_HEADER = \"x-prerender-revalidate\";\nconst PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER = \"x-prerender-revalidate-if-generated\";\nconst RSC_PREFETCH_SUFFIX = \".prefetch.rsc\";\nconst RSC_SUFFIX = \".rsc\";\nconst ACTION_SUFFIX = \".action\";\nconst NEXT_DATA_SUFFIX = \".json\";\nconst NEXT_META_SUFFIX = \".meta\";\nconst NEXT_BODY_SUFFIX = \".body\";\nconst NEXT_CACHE_TAGS_HEADER = \"x-next-cache-tags\";\nconst NEXT_CACHE_SOFT_TAGS_HEADER = \"x-next-cache-soft-tags\";\nconst NEXT_CACHE_REVALIDATED_TAGS_HEADER = \"x-next-revalidated-tags\";\nconst NEXT_CACHE_REVALIDATE_TAG_TOKEN_HEADER = \"x-next-revalidate-tag-token\";\nconst NEXT_CACHE_TAG_MAX_ITEMS = 128;\nconst NEXT_CACHE_TAG_MAX_LENGTH = 256;\nconst NEXT_CACHE_SOFT_TAG_MAX_LENGTH = 1024;\nconst NEXT_CACHE_IMPLICIT_TAG_ID = \"_N_T_\";\nconst CACHE_ONE_YEAR = 31536000;\nconst MIDDLEWARE_FILENAME = \"middleware\";\nconst MIDDLEWARE_LOCATION_REGEXP = `(?:src/)?${MIDDLEWARE_FILENAME}`;\nconst INSTRUMENTATION_HOOK_FILENAME = \"instrumentation\";\nconst PAGES_DIR_ALIAS = \"private-next-pages\";\nconst DOT_NEXT_ALIAS = \"private-dot-next\";\nconst ROOT_DIR_ALIAS = \"private-next-root-dir\";\nconst APP_DIR_ALIAS = \"private-next-app-dir\";\nconst RSC_MOD_REF_PROXY_ALIAS = \"next/dist/build/webpack/loaders/next-flight-loader/module-proxy\";\nconst RSC_ACTION_VALIDATE_ALIAS = \"private-next-rsc-action-validate\";\nconst RSC_ACTION_PROXY_ALIAS = \"private-next-rsc-server-reference\";\nconst RSC_ACTION_ENCRYPTION_ALIAS = \"private-next-rsc-action-encryption\";\nconst RSC_ACTION_CLIENT_WRAPPER_ALIAS = \"private-next-rsc-action-client-wrapper\";\nconst PUBLIC_DIR_MIDDLEWARE_CONFLICT = `You can not have a '_next' folder inside of your public folder. This conflicts with the internal '/_next' route. https://nextjs.org/docs/messages/public-next-folder-conflict`;\nconst SSG_GET_INITIAL_PROPS_CONFLICT = `You can not use getInitialProps with getStaticProps. To use SSG, please remove your getInitialProps`;\nconst SERVER_PROPS_GET_INIT_PROPS_CONFLICT = `You can not use getInitialProps with getServerSideProps. Please remove getInitialProps.`;\nconst SERVER_PROPS_SSG_CONFLICT = `You can not use getStaticProps or getStaticPaths with getServerSideProps. To use SSG, please remove getServerSideProps`;\nconst STATIC_STATUS_PAGE_GET_INITIAL_PROPS_ERROR = `can not have getInitialProps/getServerSideProps, https://nextjs.org/docs/messages/404-get-initial-props`;\nconst SERVER_PROPS_EXPORT_ERROR = `pages with \\`getServerSideProps\\` can not be exported. See more info here: https://nextjs.org/docs/messages/gssp-export`;\nconst GSP_NO_RETURNED_VALUE = \"Your `getStaticProps` function did not return an object. Did you forget to add a `return`?\";\nconst GSSP_NO_RETURNED_VALUE = \"Your `getServerSideProps` function did not return an object. Did you forget to add a `return`?\";\nconst UNSTABLE_REVALIDATE_RENAME_ERROR = \"The `unstable_revalidate` property is available for general use.\\n\" + \"Please use `revalidate` instead.\";\nconst GSSP_COMPONENT_MEMBER_ERROR = `can not be attached to a page's component and must be exported from the page. See more info here: https://nextjs.org/docs/messages/gssp-component-member`;\nconst NON_STANDARD_NODE_ENV = `You are using a non-standard \"NODE_ENV\" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env`;\nconst SSG_FALLBACK_EXPORT_ERROR = `Pages with \\`fallback\\` enabled in \\`getStaticPaths\\` can not be exported. See more info here: https://nextjs.org/docs/messages/ssg-fallback-true-export`;\nconst ESLINT_DEFAULT_DIRS = [\n    \"app\",\n    \"pages\",\n    \"components\",\n    \"lib\",\n    \"src\"\n];\nconst SERVER_RUNTIME = {\n    edge: \"edge\",\n    experimentalEdge: \"experimental-edge\",\n    nodejs: \"nodejs\"\n};\n/**\n * The names of the webpack layers. These layers are the primitives for the\n * webpack chunks.\n */ const WEBPACK_LAYERS_NAMES = {\n    /**\n   * The layer for the shared code between the client and server bundles.\n   */ shared: \"shared\",\n    /**\n   * React Server Components layer (rsc).\n   */ reactServerComponents: \"rsc\",\n    /**\n   * Server Side Rendering layer for app (ssr).\n   */ serverSideRendering: \"ssr\",\n    /**\n   * The browser client bundle layer for actions.\n   */ actionBrowser: \"action-browser\",\n    /**\n   * The layer for the API routes.\n   */ api: \"api\",\n    /**\n   * The layer for the middleware code.\n   */ middleware: \"middleware\",\n    /**\n   * The layer for the instrumentation hooks.\n   */ instrument: \"instrument\",\n    /**\n   * The layer for assets on the edge.\n   */ edgeAsset: \"edge-asset\",\n    /**\n   * The browser client bundle layer for App directory.\n   */ appPagesBrowser: \"app-pages-browser\",\n    /**\n   * The server bundle layer for metadata routes.\n   */ appMetadataRoute: \"app-metadata-route\",\n    /**\n   * The layer for the server bundle for App Route handlers.\n   */ appRouteHandler: \"app-route-handler\"\n};\nconst WEBPACK_LAYERS = {\n    ...WEBPACK_LAYERS_NAMES,\n    GROUP: {\n        serverOnly: [\n            WEBPACK_LAYERS_NAMES.reactServerComponents,\n            WEBPACK_LAYERS_NAMES.actionBrowser,\n            WEBPACK_LAYERS_NAMES.appMetadataRoute,\n            WEBPACK_LAYERS_NAMES.appRouteHandler,\n            WEBPACK_LAYERS_NAMES.instrument\n        ],\n        clientOnly: [\n            WEBPACK_LAYERS_NAMES.serverSideRendering,\n            WEBPACK_LAYERS_NAMES.appPagesBrowser\n        ],\n        nonClientServerTarget: [\n            // middleware and pages api\n            WEBPACK_LAYERS_NAMES.middleware,\n            WEBPACK_LAYERS_NAMES.api\n        ],\n        app: [\n            WEBPACK_LAYERS_NAMES.reactServerComponents,\n            WEBPACK_LAYERS_NAMES.actionBrowser,\n            WEBPACK_LAYERS_NAMES.appMetadataRoute,\n            WEBPACK_LAYERS_NAMES.appRouteHandler,\n            WEBPACK_LAYERS_NAMES.serverSideRendering,\n            WEBPACK_LAYERS_NAMES.appPagesBrowser,\n            WEBPACK_LAYERS_NAMES.shared,\n            WEBPACK_LAYERS_NAMES.instrument\n        ]\n    }\n};\nconst WEBPACK_RESOURCE_QUERIES = {\n    edgeSSREntry: \"__next_edge_ssr_entry__\",\n    metadata: \"__next_metadata__\",\n    metadataRoute: \"__next_metadata_route__\",\n    metadataImageMeta: \"__next_metadata_image_meta__\"\n};\n\n//# sourceMappingURL=constants.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2xpYi9jb25zdGFudHMuanMiLCJtYXBwaW5ncyI6IkFBQWE7QUFDYiw4Q0FBNkM7QUFDN0M7QUFDQSxDQUFDLEVBQUM7QUFDRixNQUFNLENBZ0RMO0FBQ0Q7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFD
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
+    at Module._compile (node:internal/modules/cjs/loader:1704:20)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1487:12)
+    at mod.require (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16) {
+  type: 'SyntaxError'
+}
+ ⨯ Failed to generate static paths for /news/[id]:
+/Users/mielvida/code/NewsPages/.next/server/vendor-chunks/next.js:2593
+eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\n0 && (0);\nfunction _export(target, all) {\n    for(var name in all)Object.defineProperty(target, name, {\n        enumerable: true,\n        get: all[name]\n    });\n}\n_export(exports, {\n    ACTION_SUFFIX: function() {\n        return ACTION_SUFFIX;\n    },\n    APP_DIR_ALIAS: function() {\n        return APP_DIR_ALIAS;\n    },\n    CACHE_ONE_YEAR: function() {\n        return CACHE_ONE_YEAR;\n    },\n    DOT_NEXT_ALIAS: function() {\n        return DOT_NEXT_ALIAS;\n    },\n    ESLINT_DEFAULT_DIRS: function() {\n        return ESLINT_DEFAULT_DIRS;\n    },\n    GSP_NO_RETURNED_VALUE: function() {\n        return GSP_NO_RETURNED_VALUE;\n    },\n    GSSP_COMPONENT_MEMBER_ERROR: function() {\n        return GSSP_COMPONENT_MEMBER_ERROR;\n    },\n    GSSP_NO_RETURNED_VALUE: function() {\n        return GSSP_NO_RETURNED_VALUE;\n    },\n    INSTRUMENTATION_HOOK_FILENAME: function() {\n        return INSTRUMENTATION_HOOK_FILENAME;\n    },\n    MIDDLEWARE_FILENAME: function() {\n        return MIDDLEWARE_FILENAME;\n    },\n    MIDDLEWARE_LOCATION_REGEXP: function() {\n        return MIDDLEWARE_LOCATION_REGEXP;\n    },\n    NEXT_BODY_SUFFIX: function() {\n        return NEXT_BODY_SUFFIX;\n    },\n    NEXT_CACHE_IMPLICIT_TAG_ID: function() {\n        return NEXT_CACHE_IMPLICIT_TAG_ID;\n    },\n    NEXT_CACHE_REVALIDATED_TAGS_HEADER: function() {\n        return NEXT_CACHE_REVALIDATED_TAGS_HEADER;\n    },\n    NEXT_CACHE_REVALIDATE_TAG_TOKEN_HEADER: function() {\n        return NEXT_CACHE_REVALIDATE_TAG_TOKEN_HEADER;\n    },\n    NEXT_CACHE_SOFT_TAGS_HEADER: function() {\n        return NEXT_CACHE_SOFT_TAGS_HEADER;\n    },\n    NEXT_CACHE_SOFT_TAG_MAX_LENGTH: function() {\n        return NEXT_CACHE_SOFT_TAG_MAX_LENGTH;\n    },\n    NEXT_CACHE_TAGS_HEADER: function() {\n        return NEXT_CACHE_TAGS_HEADER;\n    },\n    NEXT_CACHE_TAG_MAX_ITEMS: function() {\n        return NEXT_CACHE_TAG_MAX_ITEMS;\n    },\n    NEXT_CACHE_TAG_MAX_LENGTH: function() {\n        return NEXT_CACHE_TAG_MAX_LENGTH;\n    },\n    NEXT_DATA_SUFFIX: function() {\n        return NEXT_DATA_SUFFIX;\n    },\n    NEXT_INTERCEPTION_MARKER_PREFIX: function() {\n        return NEXT_INTERCEPTION_MARKER_PREFIX;\n    },\n    NEXT_META_SUFFIX: function() {\n        return NEXT_META_SUFFIX;\n    },\n    NEXT_QUERY_PARAM_PREFIX: function() {\n        return NEXT_QUERY_PARAM_PREFIX;\n    },\n    NON_STANDARD_NODE_ENV: function() {\n        return NON_STANDARD_NODE_ENV;\n    },\n    PAGES_DIR_ALIAS: function() {\n        return PAGES_DIR_ALIAS;\n    },\n    PRERENDER_REVALIDATE_HEADER: function() {\n        return PRERENDER_REVALIDATE_HEADER;\n    },\n    PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER: function() {\n        return PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER;\n    },\n    PUBLIC_DIR_MIDDLEWARE_CONFLICT: function() {\n        return PUBLIC_DIR_MIDDLEWARE_CONFLICT;\n    },\n    ROOT_DIR_ALIAS: function() {\n        return ROOT_DIR_ALIAS;\n    },\n    RSC_ACTION_CLIENT_WRAPPER_ALIAS: function() {\n        return RSC_ACTION_CLIENT_WRAPPER_ALIAS;\n    },\n    RSC_ACTION_ENCRYPTION_ALIAS: function() {\n        return RSC_ACTION_ENCRYPTION_ALIAS;\n    },\n    RSC_ACTION_PROXY_ALIAS: function() {\n        return RSC_ACTION_PROXY_ALIAS;\n    },\n    RSC_ACTION_VALIDATE_ALIAS: function() {\n        return RSC_ACTION_VALIDATE_ALIAS;\n    },\n    RSC_MOD_REF_PROXY_ALIAS: function() {\n        return RSC_MOD_REF_PROXY_ALIAS;\n    },\n    RSC_PREFETCH_SUFFIX: function() {\n        return RSC_PREFETCH_SUFFIX;\n    },\n    RSC_SUFFIX: function() {\n        return RSC_SUFFIX;\n    },\n    SERVER_PROPS_EXPORT_ERROR: function() {\n        return SERVER_PROPS_EXPORT_ERROR;\n    },\n    SERVER_PROPS_GET_INIT_PROPS_CONFLICT: function() {\n        return SERVER_PROPS_GET_INIT_PROPS_CONFLICT;\n    },\n    SERVER_PROPS_SSG_CONFLICT: function() {\n        return SERVER_PROPS_SSG_CONFLICT;\n    },\n    SERVER_RUNTIME: function() {\n        return SERVER_RUNTIME;\n    },\n    SSG_FALLBACK_EXPORT_ERROR: function() {\n        return SSG_FALLBACK_EXPORT_ERROR;\n    },\n    SSG_GET_INITIAL_PROPS_CONFLICT: function() {\n        return SSG_GET_INITIAL_PROPS_CONFLICT;\n    },\n    STATIC_STATUS_PAGE_GET_INITIAL_PROPS_ERROR: function() {\n        return STATIC_STATUS_PAGE_GET_INITIAL_PROPS_ERROR;\n    },\n    UNSTABLE_REVALIDATE_RENAME_ERROR: function() {\n        return UNSTABLE_REVALIDATE_RENAME_ERROR;\n    },\n    WEBPACK_LAYERS: function() {\n        return WEBPACK_LAYERS;\n    },\n    WEBPACK_RESOURCE_QUERIES: function() {\n        return WEBPACK_RESOURCE_QUERIES;\n    }\n});\nconst NEXT_QUERY_PARAM_PREFIX = \"nxtP\";\nconst NEXT_INTERCEPTION_MARKER_PREFIX = \"nxtI\";\nconst PRERENDER_REVALIDATE_HEADER = \"x-prerender-revalidate\";\nconst PRERENDER_REVALIDATE_ONLY_GENERATED_HEADER = \"x-prerender-revalidate-if-generated\";\nconst RSC_PREFETCH_SUFFIX = \".prefetch.rsc\";\nconst RSC_SUFFIX = \".rsc\";\nconst ACTION_SUFFIX = \".action\";\nconst NEXT_DATA_SUFFIX = \".json\";\nconst NEXT_META_SUFFIX = \".meta\";\nconst NEXT_BODY_SUFFIX = \".body\";\nconst NEXT_CACHE_TAGS_HEADER = \"x-next-cache-tags\";\nconst NEXT_CACHE_SOFT_TAGS_HEADER = \"x-next-cache-soft-tags\";\nconst NEXT_CACHE_REVALIDATED_TAGS_HEADER = \"x-next-revalidated-tags\";\nconst NEXT_CACHE_REVALIDATE_TAG_TOKEN_HEADER = \"x-next-revalidate-tag-token\";\nconst NEXT_CACHE_TAG_MAX_ITEMS = 128;\nconst NEXT_CACHE_TAG_MAX_LENGTH = 256;\nconst NEXT_CACHE_SOFT_TAG_MAX_LENGTH = 1024;\nconst NEXT_CACHE_IMPLICIT_TAG_ID = \"_N_T_\";\nconst CACHE_ONE_YEAR = 31536000;\nconst MIDDLEWARE_FILENAME = \"middleware\";\nconst MIDDLEWARE_LOCATION_REGEXP = `(?:src/)?${MIDDLEWARE_FILENAME}`;\nconst INSTRUMENTATION_HOOK_FILENAME = \"instrumentation\";\nconst PAGES_DIR_ALIAS = \"private-next-pages\";\nconst DOT_NEXT_ALIAS = \"private-dot-next\";\nconst ROOT_DIR_ALIAS = \"private-next-root-dir\";\nconst APP_DIR_ALIAS = \"private-next-app-dir\";\nconst RSC_MOD_REF_PROXY_ALIAS = \"next/dist/build/webpack/loaders/next-flight-loader/module-proxy\";\nconst RSC_ACTION_VALIDATE_ALIAS = \"private-next-rsc-action-validate\";\nconst RSC_ACTION_PROXY_ALIAS = \"private-next-rsc-server-reference\";\nconst RSC_ACTION_ENCRYPTION_ALIAS = \"private-next-rsc-action-encryption\";\nconst RSC_ACTION_CLIENT_WRAPPER_ALIAS = \"private-next-rsc-action-client-wrapper\";\nconst PUBLIC_DIR_MIDDLEWARE_CONFLICT = `You can not have a '_next' folder inside of your public folder. This conflicts with the internal '/_next' route. https://nextjs.org/docs/messages/public-next-folder-conflict`;\nconst SSG_GET_INITIAL_PROPS_CONFLICT = `You can not use getInitialProps with getStaticProps. To use SSG, please remove your getInitialProps`;\nconst SERVER_PROPS_GET_INIT_PROPS_CONFLICT = `You can not use getInitialProps with getServerSideProps. Please remove getInitialProps.`;\nconst SERVER_PROPS_SSG_CONFLICT = `You can not use getStaticProps or getStaticPaths with getServerSideProps. To use SSG, please remove getServerSideProps`;\nconst STATIC_STATUS_PAGE_GET_INITIAL_PROPS_ERROR = `can not have getInitialProps/getServerSideProps, https://nextjs.org/docs/messages/404-get-initial-props`;\nconst SERVER_PROPS_EXPORT_ERROR = `pages with \\`getServerSideProps\\` can not be exported. See more info here: https://nextjs.org/docs/messages/gssp-export`;\nconst GSP_NO_RETURNED_VALUE = \"Your `getStaticProps` function did not return an object. Did you forget to add a `return`?\";\nconst GSSP_NO_RETURNED_VALUE = \"Your `getServerSideProps` function did not return an object. Did you forget to add a `return`?\";\nconst UNSTABLE_REVALIDATE_RENAME_ERROR = \"The `unstable_revalidate` property is available for general use.\\n\" + \"Please use `revalidate` instead.\";\nconst GSSP_COMPONENT_MEMBER_ERROR = `can not be attached to a page's component and must be exported from the page. See more info here: https://nextjs.org/docs/messages/gssp-component-member`;\nconst NON_STANDARD_NODE_ENV = `You are using a non-standard \"NODE_ENV\" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env`;\nconst SSG_FALLBACK_EXPORT_ERROR = `Pages with \\`fallback\\` enabled in \\`getStaticPaths\\` can not be exported. See more info here: https://nextjs.org/docs/messages/ssg-fallback-true-export`;\nconst ESLINT_DEFAULT_DIRS = [\n    \"app\",\n    \"pages\",\n    \"components\",\n    \"lib\",\n    \"src\"\n];\nconst SERVER_RUNTIME = {\n    edge: \"edge\",\n    experimentalEdge: \"experimental-edge\",\n    nodejs: \"nodejs\"\n};\n/**\n * The names of the webpack layers. These layers are the primitives for the\n * webpack chunks.\n */ const WEBPACK_LAYERS_NAMES = {\n    /**\n   * The layer for the shared code between the client and server bundles.\n   */ shared: \"shared\",\n    /**\n   * React Server Components layer (rsc).\n   */ reactServerComponents: \"rsc\",\n    /**\n   * Server Side Rendering layer for app (ssr).\n   */ serverSideRendering: \"ssr\",\n    /**\n   * The browser client bundle layer for actions.\n   */ actionBrowser: \"action-browser\",\n    /**\n   * The layer for the API routes.\n   */ api: \"api\",\n    /**\n   * The layer for the middleware code.\n   */ middleware: \"middleware\",\n    /**\n   * The layer for the instrumentation hooks.\n   */ instrument: \"instrument\",\n    /**\n   * The layer for assets on the edge.\n   */ edgeAsset: \"edge-asset\",\n    /**\n   * The browser client bundle layer for App directory.\n   */ appPagesBrowser: \"app-pages-browser\",\n    /**\n   * The server bundle layer for metadata routes.\n   */ appMetadataRoute: \"app-metadata-route\",\n    /**\n   * The layer for the server bundle for App Route handlers.\n   */ appRouteHandler: \"app-route-handler\"\n};\nconst WEBPACK_LAYERS = {\n    ...WEBPACK_LAYERS_NAMES,\n    GROUP: {\n        serverOnly: [\n            WEBPACK_LAYERS_NAMES.reactServerComponents,\n            WEBPACK_LAYERS_NAMES.actionBrowser,\n            WEBPACK_LAYERS_NAMES.appMetadataRoute,\n            WEBPACK_LAYERS_NAMES.appRouteHandler,\n            WEBPACK_LAYERS_NAMES.instrument\n        ],\n        clientOnly: [\n            WEBPACK_LAYERS_NAMES.serverSideRendering,\n            WEBPACK_LAYERS_NAMES.appPagesBrowser\n        ],\n        nonClientServerTarget: [\n            // middleware and pages api\n            WEBPACK_LAYERS_NAMES.middleware,\n            WEBPACK_LAYERS_NAMES.api\n        ],\n        app: [\n            WEBPACK_LAYERS_NAMES.reactServerComponents,\n            WEBPACK_LAYERS_NAMES.actionBrowser,\n            WEBPACK_LAYERS_NAMES.appMetadataRoute,\n            WEBPACK_LAYERS_NAMES.appRouteHandler,\n            WEBPACK_LAYERS_NAMES.serverSideRendering,\n            WEBPACK_LAYERS_NAMES.appPagesBrowser,\n            WEBPACK_LAYERS_NAMES.shared,\n            WEBPACK_LAYERS_NAMES.instrument\n        ]\n    }\n};\nconst WEBPACK_RESOURCE_QUERIES = {\n    edgeSSREntry: \"__next_edge_ssr_entry__\",\n    metadata: \"__next_metadata__\",\n    metadataRoute: \"__next_metadata_route__\",\n    metadataImageMeta: \"__next_metadata_image_meta__\"\n};\n\n//# sourceMappingURL=constants.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2xpYi9jb25zdGFudHMuanMiLCJtYXBwaW5ncyI6IkFBQWE7QUFDYiw4Q0FBNkM7QUFDN0M7QUFDQSxDQUFDLEVBQUM7QUFDRixNQUFNLENBZ0RMO0FBQ0Q7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFD
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
+    at Module._compile (node:internal/modules/cjs/loader:1704:20)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1487:12)
+    at mod.require (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16) {
+  type: 'SyntaxError'
+}
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 285ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 564ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled in 357ms (2024 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 2600ms
+ ✓ Compiled in 206ms (2024 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 1984ms
+ ○ Compiling /news ...
+ ✓ Compiled /news in 799ms (3139 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /news?_rsc=6z57i 200 in 7170ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled /api/articles/[id] in 196ms (2063 modules)
+ GET /api/articles/f86aee59-82b0-4f71-a54c-07f72c19b69b 200 in 687ms
+ GET /api/articles/f86aee59-82b0-4f71-a54c-07f72c19b69b 200 in 691ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ DELETE /api/articles/20f73883-4f79-4f6a-aa2c-80f0412ed795 204 in 159ms
+ GET /login 200 in 100ms
+ GET /news?_rsc=1hqdb 200 in 7071ms
+ ✓ Compiled /_not-found in 347ms (2064 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 439ms
+ ✓ Compiled /api/auth/[...nextauth] in 181ms (2066 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 209ms
+ GET /api/auth/session 200 in 211ms
+Failed to set fetch cache https://qofpoxynzgpkgvveqvid.supabase.co/rest/v1/articles?select=id%2Ctitle%2Cthumbnail%2Ccontent%2Ccreated_at&order=created_at.desc&limit=15 Error: Failed to set Next.js data cache, items over 2MB can not be cached (8610142 bytes)
+    at IncrementalCache.set (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/incremental-cache/index.js:388:23)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/lib/patch-fetch.js:456:74)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:45:43)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled in 444ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 6453ms
+ ✓ Compiled in 223ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 7814ms
+ ✓ Compiled in 384ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 7017ms
+ ✓ Compiled /_not-found in 274ms (2038 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 346ms
+ ✓ Compiled /api/auth/[...nextauth] in 432ms (2042 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 474ms
+ GET /api/auth/session 200 in 477ms
+Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+ ⨯ Internal error: TypeError: Cannot read properties of null (reading 'useContext')
+    at t.useContext (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:162242)
+    at LinkComponent (./node_modules/next/dist/client/link.js:125:40)
+    at au (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:44746)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50067)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:58612
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59270
+    at aN (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59278)
+    at Timeout._onTimeout (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:6939)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+digest: "2597254038"
+ GET / 200 in 8509ms
+ ✓ Compiled /favicon.ico in 275ms (2072 modules)
+ GET /favicon.ico 200 in 320ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /news?_rsc=6z57i 200 in 11336ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+Failed to set fetch cache https://qofpoxynzgpkgvveqvid.supabase.co/rest/v1/articles?select=id%2Ctitle%2Cthumbnail%2Ccontent%2Ccreated_at&order=created_at.desc&limit=15 Error: Failed to set Next.js data cache, items over 2MB can not be cached (8610142 bytes)
+    at IncrementalCache.set (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/incremental-cache/index.js:388:23)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/lib/patch-fetch.js:456:74)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:45:43)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled in 456ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 6316ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled in 371ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 7429ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled in 213ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 13736ms
+ ✓ Compiled in 392ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 7254ms
+ ✓ Compiled in 248ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 5621ms
+ ✓ Compiled in 361ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 6940ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled in 383ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 9268ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 515ms (2038 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 623ms
+ ✓ Compiled /api/auth/[...nextauth] in 198ms (2042 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 241ms
+ GET /api/auth/session 200 in 244ms
+Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+ ⨯ Internal error: TypeError: Cannot read properties of null (reading 'useContext')
+    at t.useContext (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:162242)
+    at LinkComponent (./node_modules/next/dist/client/link.js:125:40)
+    at au (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:44746)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50067)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:58612
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59270
+    at aN (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59278)
+    at Timeout._onTimeout (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:6939)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+digest: "3579033598"
+ GET / 200 in 4174ms
+ ✓ Compiled /favicon.ico in 297ms (2072 modules)
+ GET /favicon.ico 200 in 342ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /news?_rsc=6z57i 200 in 3956ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+Failed to set fetch cache https://qofpoxynzgpkgvveqvid.supabase.co/rest/v1/articles?select=id%2Ctitle%2Cthumbnail%2Ccontent%2Ccreated_at&order=created_at.desc&limit=15 Error: Failed to set Next.js data cache, items over 2MB can not be cached (8610142 bytes)
+    at IncrementalCache.set (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/incremental-cache/index.js:388:23)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/lib/patch-fetch.js:456:74)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:45:43)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 173ms
+ GET /api/auth/session 200 in 14ms
+ GET /api/auth/session 200 in 15ms
+ GET / 200 in 4649ms
+ GET /favicon.ico 200 in 16ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled in 481ms (3188 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 49799ms
+ ✓ Compiled in 357ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 5613ms
+ ✓ Compiled /_not-found in 347ms (2038 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 466ms
+ ✓ Compiled /api/auth/[...nextauth] in 125ms (2042 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 172ms
+ GET /api/auth/session 200 in 174ms
+Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+ ⨯ Internal error: TypeError: Cannot read properties of null (reading 'useContext')
+    at t.useContext (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:162242)
+    at LinkComponent (./node_modules/next/dist/client/link.js:125:40)
+    at au (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:44746)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50067)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:58612
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59270
+    at aN (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59278)
+    at Timeout._onTimeout (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:6939)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+digest: "3579033598"
+ GET / 200 in 11534ms
+ ✓ Compiled /favicon.ico in 240ms (2072 modules)
+ GET /favicon.ico 200 in 308ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ○ Compiling /api/articles/[id] ...
+ ✓ Compiled /api/articles/[id] in 522ms (2095 modules)
+ GET /api/articles/97caa5bf-1a37-4f88-be1d-343fcee69538 200 in 772ms
+ GET /api/articles/97caa5bf-1a37-4f88-be1d-343fcee69538 200 in 777ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled in 567ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 59795ms
+ ✓ Compiled in 426ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ ✓ Compiled in 357ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 88038ms
+ ✓ Compiled in 262ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 45674ms
+ GET /?_rsc=r3yhw 200 in 6853ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ GET /login 200 in 68ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 594ms (2038 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 705ms
+ ✓ Compiled /api/auth/[...nextauth] in 248ms (2042 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 290ms
+ GET /api/auth/session 200 in 293ms
+Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+ ⨯ Internal error: TypeError: Cannot read properties of null (reading 'useContext')
+    at t.useContext (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:162242)
+    at LinkComponent (./node_modules/next/dist/client/link.js:125:40)
+    at au (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:44746)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50067)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:58612
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59270
+    at aN (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59278)
+    at Timeout._onTimeout (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:6939)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+digest: "3579033598"
+ GET / 200 in 66616ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2216%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%20Tech%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%2300B74A%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2216%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EElectric%20Car%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%234285f4%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2218%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EAI%20Tech%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2218%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 507ms (2069 modules)
+ GET /favicon.ico 200 in 547ms
+ ✓ Compiled in 415ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 10575ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2216%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMetaverse%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2216%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%20Tech%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2218%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%2300B74A%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2216%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EElectric%20Car%3C/text%3E%3C/svg%3E 400
+ ✓ Compiled in 225ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 44367ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ ✓ Compiled in 399ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 27914ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 592ms (2038 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 714ms
+ ✓ Compiled /api/auth/[...nextauth] in 248ms (2042 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 313ms
+ GET /api/auth/session 200 in 324ms
+ GET / 200 in 47919ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 47ms
+ GET /api/auth/session 200 in 19ms
+ GET /api/auth/session 200 in 19ms
+Failed to set fetch cache https://qofpoxynzgpkgvveqvid.supabase.co/rest/v1/articles?select=id%2Ctitle%2Cthumbnail%2Ccontent%2Ccreated_at&order=created_at.desc&limit=20 Error: Failed to set Next.js data cache, items over 2MB can not be cached (8620135 bytes)
+    at IncrementalCache.set (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/incremental-cache/index.js:388:23)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/lib/patch-fetch.js:456:74)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:45:43)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2216%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%20Tech%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2216%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMetaverse%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2218%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 400
+ GET / 200 in 110879ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2216%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMetaverse%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2216%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%20Tech%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22400%22%20height=%22200%22%20viewBox=%220%200%20400%20200%22%3E%3Crect%20width=%22400%22%20height=%22200%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%22200%22%20y=%22100%22%20font-family=%22Arial%22%20font-size=%2218%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ HEAD / 200 in 16ms
+Failed to set fetch cache https://qofpoxynzgpkgvveqvid.supabase.co/rest/v1/articles?select=id%2Ctitle%2Cthumbnail%2Ccontent%2Ccreated_at&order=created_at.desc&limit=20 Error: Failed to set Next.js data cache, items over 2MB can not be cached (8620135 bytes)
+    at IncrementalCache.set (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/incremental-cache/index.js:388:23)
+    at eval (webpack-internal:///(rsc)/./node_modules/next/dist/server/lib/patch-fetch.js:456:74)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:45:43)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public//uploads/image.png 504
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 557ms (2069 modules)
+ GET /favicon.ico 200 in 601ms
+ ✓ Compiled in 121ms (2069 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 352ms
+ ✓ Compiled in 219ms (2069 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 844ms
+ GET / 200 in 308ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 514ms (2038 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 725ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ✓ Compiled /api/auth/[...nextauth] in 207ms (2070 modules)
+ ✓ Compiled (2072 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /favicon.ico 200 in 652ms
+ GET /api/auth/session 200 in 600ms
+ GET /api/auth/session 200 in 600ms
+ ○ Compiling /api/articles/[id] ...
+ ✓ Compiled /api/articles/[id] in 553ms (2095 modules)
+ GET /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e 200 in 684ms
+ GET /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e 200 in 737ms
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /news/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e 200 in 84ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 207ms
+ GET /favicon.ico 200 in 30ms
+ GET /api/auth/session 200 in 36ms
+ GET /api/auth/session 200 in 39ms
+ GET /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e 200 in 535ms
+ GET /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e 200 in 700ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 34ms
+ GET / 200 in 214ms
+ GET /api/auth/session 200 in 25ms
+ GET /api/auth/session 200 in 25ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ GET /favicon.ico 200 in 6ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ GET / 200 in 280ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 203ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ GET /api/auth/session 200 in 70ms
+ GET /api/auth/session 200 in 72ms
+ GET /favicon.ico 200 in 33ms
+ GET /news?_rsc=6z57i 200 in 61ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%2300B74A%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EEV%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%234285f4%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EAI%3C/text%3E%3C/svg%3E 400
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 113ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 125ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%2300B74A%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EEV%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%234285f4%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EAI%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ GET /api/articles/f86aee59-82b0-4f71-a54c-07f72c19b69b 200 in 144ms
+ GET /api/articles/f86aee59-82b0-4f71-a54c-07f72c19b69b 200 in 192ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%2300B74A%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EEV%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%234285f4%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EAI%3C/text%3E%3C/svg%3E 400
+ GET /api/articles/22f48c0d-1f7c-4b8c-8b61-ca88b3102a0a 200 in 64ms
+ GET /api/articles/22f48c0d-1f7c-4b8c-8b61-ca88b3102a0a 200 in 77ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%234285f4%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EAI%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%2300B74A%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EEV%3C/text%3E%3C/svg%3E 400
+ GET /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e 200 in 77ms
+ GET /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e 200 in 80ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 504
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 278ms
+ GET /api/articles/a997ba4e-04a3-48d9-9851-f2daeb75432d 200 in 543ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ GET /api/articles/22f48c0d-1f7c-4b8c-8b61-ca88b3102a0a 200 in 190ms
+ GET /api/articles/22f48c0d-1f7c-4b8c-8b61-ca88b3102a0a 200 in 312ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ GET /api/articles/30a08c0a-a885-4a18-a772-5c21c9c2884c 200 in 23452ms
+ GET /api/articles/30a08c0a-a885-4a18-a772-5c21c9c2884c 200 in 25276ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 502
+ ✓ Compiled in 569ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 179ms
+ ✓ Compiled /api/auth/[...nextauth] in 246ms (2041 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/csrf 200 in 325ms
+ POST /api/auth/signout 200 in 8ms
+ ✓ Compiled /_not-found in 241ms (2042 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 449ms
+Warning: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+1. You might have mismatching versions of React and the renderer (such as React DOM)
+2. You might be breaking the Rules of Hooks
+3. You might have more than one copy of React in the same app
+See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.
+ ⨯ Internal error: TypeError: Cannot read properties of null (reading 'useContext')
+    at t.useContext (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:162242)
+    at LinkComponent (./node_modules/next/dist/client/link.js:125:40)
+    at au (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:44746)
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42336
+    at aw (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42822)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at a_ (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50067)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:58612
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59270
+    at aN (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:59278)
+    at Timeout._onTimeout (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:6939)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)
+digest: "3579033598"
+ GET / 200 in 629ms
+ GET /api/auth/session 200 in 95ms
+ GET /api/auth/session 200 in 152ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ✓ Compiled in 472ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 193ms
+ ✓ Compiled in 305ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 96ms
+ ✓ Compiled in 547ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 494ms
+ ✓ Compiled in 331ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 115ms
+ ○ Compiling /api/articles/[id] ...
+ ✓ Compiled /api/articles/[id] in 526ms (2063 modules)
+ GET /api/articles/1f193a5a-628c-4927-ab24-6d34d6f86ba2 200 in 1443ms
+ GET /api/articles/1f193a5a-628c-4927-ab24-6d34d6f86ba2 200 in 1452ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ✓ Compiled in 270ms (1116 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 699ms
+ GET /?_rsc=r3yhw 200 in 661ms
+ ✓ Compiled in 452ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 157ms
+ ✓ Compiled in 196ms (2037 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 159ms
+ ✓ Compiled in 121ms (2037 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching article previews: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getArticlePreviews: Error: Supabase query failed: column articles.view_count does not exist
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:50:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ GET /?_rsc=r3yhw 200 in 106ms
+ ✓ Compiled in 112ms (2037 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching article previews: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getArticlePreviews: Error: Supabase query failed: column articles.view_count does not exist
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:50:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ GET /?_rsc=r3yhw 200 in 79ms
+ ✓ Compiled in 115ms (2037 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching article previews: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getArticlePreviews: Error: Supabase query failed: column articles.view_count does not exist
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:50:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ GET /?_rsc=r3yhw 200 in 88ms
+ ✓ Compiled in 112ms (2037 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching article previews: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getArticlePreviews: Error: Supabase query failed: column articles.view_count does not exist
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:51:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ GET /?_rsc=r3yhw 200 in 89ms
+ ✓ Compiled in 367ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching article previews: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getArticlePreviews: Error: Supabase query failed: column articles.view_count does not exist
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:51:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:26)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:42:33)
+ GET /?_rsc=r3yhw 200 in 116ms
+ ✓ Compiled in 220ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching most viewed articles: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getMostViewedArticles: Error: Supabase query failed: column articles.view_count does not exist
+    at getMostViewedArticles (webpack-internal:///(rsc)/./lib/data.ts:119:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:48)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:47:33)
+Error fetching article previews: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getArticlePreviews: Error: Supabase query failed: column articles.view_count does not exist
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:51:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 0)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:48)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:47:33)
+ GET /?_rsc=r3yhw 200 in 90ms
+ ✓ Compiled in 236ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching article previews: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getArticlePreviews: Error: Supabase query failed: column articles.view_count does not exist
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:51:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 0)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:48)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:47:53)
+Error fetching most viewed articles: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getMostViewedArticles: Error: Supabase query failed: column articles.view_count does not exist
+    at getMostViewedArticles (webpack-internal:///(rsc)/./lib/data.ts:119:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:48)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:47:53)
+ GET /?_rsc=r3yhw 200 in 567ms
+ ✓ Compiled in 232ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching most viewed articles: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getMostViewedArticles: Error: Supabase query failed: column articles.view_count does not exist
+    at getMostViewedArticles (webpack-internal:///(rsc)/./lib/data.ts:119:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:48)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:47:53)
+Error fetching article previews: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getArticlePreviews: Error: Supabase query failed: column articles.view_count does not exist
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:51:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 0)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:48)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:47:53)
+ ⨯ app/page.tsx (181:16) @ recentArticles
+ ⨯ ReferenceError: recentArticles is not defined
+    at Home (./app/page.tsx:422:51)
+digest: "4126689140"
+[0m [90m 179 |[39m           [33m<[39m[33mCard[39m className[33m=[39m[32m"bg-white border-0 shadow-sm"[39m[33m>[39m[0m
+[0m [90m 180 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"divide-y divide-gray-100"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 181 |[39m               {recentArticles[33m.[39mslice([35m0[39m[33m,[39m [35m5[39m)[33m.[39mmap((article[33m,[39m index) [33m=>[39m ([0m
+[0m [90m     |[39m                [31m[1m^[22m[39m[0m
+[0m [90m 182 |[39m                 [33m<[39m[33mLink[39m key[33m=[39m{article[33m.[39mid} href[33m=[39m{[32m`/news/${article.id}`[39m} className[33m=[39m[32m"block p-3 hover:bg-gray-50 transition-colors"[39m[33m>[39m[0m
+[0m [90m 183 |[39m                   [33m<[39m[33mdiv[39m className[33m=[39m[32m"flex gap-3 items-start"[39m[33m>[39m[0m
+[0m [90m 184 |[39m                     [33m<[39m[33mspan[39m className[33m=[39m[32m"flex-shrink-0 w-6 h-6 bg-coinreaders-blue text-white rounded-full flex items-center justify-center text-xs font-bold"[39m[33m>[39m[0m
+ GET /?_rsc=r3yhw 200 in 114ms
+ ✓ Compiled in 338ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+Error fetching most viewed articles: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getMostViewedArticles: Error: Supabase query failed: column articles.view_count does not exist
+    at getMostViewedArticles (webpack-internal:///(rsc)/./lib/data.ts:119:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 1)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:48)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:47:53)
+Error fetching article previews: {
+  code: '42703',
+  details: null,
+  hint: null,
+  message: 'column articles.view_count does not exist'
+}
+Error in getArticlePreviews: Error: Supabase query failed: column articles.view_count does not exist
+    at getArticlePreviews (webpack-internal:///(rsc)/./lib/data.ts:51:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 0)
+    at async getHomePageData (webpack-internal:///(rsc)/./app/page.tsx:28:48)
+    at async Home (webpack-internal:///(rsc)/./app/page.tsx:47:53)
+ GET /?_rsc=r3yhw 200 in 131ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 586ms (2038 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET / 200 in 843ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 691ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ✓ Compiled /api/auth/[...nextauth] in 225ms (2070 modules)
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%2300B74A%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EEV%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%234285f4%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EAI%3C/text%3E%3C/svg%3E 400
+ ✓ Compiled (2072 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /api/auth/session 200 in 503ms
+ GET /api/auth/session 200 in 504ms
+ GET /favicon.ico 200 in 515ms
+ ✓ Compiled /api/articles/[id] in 163ms (2095 modules)
+ GET /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e 200 in 252ms
+ GET /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e 200 in 257ms
+ ✓ Compiled /api/articles/[id]/view in 155ms (2097 modules)
+Error in view count API: TypeError: _lib_supabase__WEBPACK_IMPORTED_MODULE_1__.supabase.raw is not a function
+    at POST (webpack-internal:///(rsc)/./app/api/articles/[id]/view/route.ts:21:77)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57234
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:48896
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:40958)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:47472
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:38293)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:47434
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at eT.execute (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46881)
+    at eT.handle (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58771)
+    at doRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1366:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1576:46)
+    at ResponseCache.get (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1496:53)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async DevServer.renderPageComponent (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:818:17)
+    at async /Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/Users/mielvida/code/NewsPages/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/start-server.js:141:13)
+Error in view count API: TypeError: _lib_supabase__WEBPACK_IMPORTED_MODULE_1__.supabase.raw is not a function
+    at POST (webpack-internal:///(rsc)/./app/api/articles/[id]/view/route.ts:21:77)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57234
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:48896
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:40958)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:47472
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:38293)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:47434
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at eT.execute (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46881)
+    at eT.handle (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58771)
+    at doRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1366:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1576:46)
+    at ResponseCache.get (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1496:53)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async DevServer.renderPageComponent (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:818:17)
+    at async /Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/Users/mielvida/code/NewsPages/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/start-server.js:141:13)
+ POST /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e/view 500 in 402ms
+ POST /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e/view 500 in 407ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%2300B74A%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EEV%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%234285f4%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EAI%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ GET /api/articles/22f48c0d-1f7c-4b8c-8b61-ca88b3102a0a 200 in 141ms
+ GET /api/articles/22f48c0d-1f7c-4b8c-8b61-ca88b3102a0a 200 in 147ms
+Error in view count API: TypeError: _lib_supabase__WEBPACK_IMPORTED_MODULE_1__.supabase.raw is not a function
+    at POST (webpack-internal:///(rsc)/./app/api/articles/[id]/view/route.ts:21:77)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57234
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:48896
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:40958)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:47472
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:38293)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:47434
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at eT.execute (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46881)
+    at eT.handle (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58771)
+    at doRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1366:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1576:46)
+    at ResponseCache.get (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1496:53)
+    at async DevServer.renderPageComponent (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:818:17)
+    at async /Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/Users/mielvida/code/NewsPages/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/start-server.js:141:13)
+Error in view count API: TypeError: _lib_supabase__WEBPACK_IMPORTED_MODULE_1__.supabase.raw is not a function
+    at POST (webpack-internal:///(rsc)/./app/api/articles/[id]/view/route.ts:21:77)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57234
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:48896
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:40958)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:47472
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at Object.wrap (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:38293)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:47434
+    at AsyncLocalStorage.run (node:internal/async_local_storage/async_hooks:91:14)
+    at eT.execute (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46881)
+    at eT.handle (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58771)
+    at doRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1366:60)
+    at cacheEntry.responseCache.get.routeKind (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1576:46)
+    at ResponseCache.get (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/response-cache/index.js:49:26)
+    at DevServer.renderToResponseWithComponentsImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1496:53)
+    at async DevServer.renderPageComponent (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1924:24)
+    at async DevServer.renderToResponseImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1962:32)
+    at async DevServer.pipeImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:818:17)
+    at async /Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/Users/mielvida/code/NewsPages/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:179:21)
+    at async handleRequest (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:359:24)
+    at async requestHandlerImpl (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/router-server.js:383:13)
+    at async Server.requestListener (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/start-server.js:141:13)
+ POST /api/articles/22f48c0d-1f7c-4b8c-8b61-ca88b3102a0a/view 500 in 17ms
+ POST /api/articles/22f48c0d-1f7c-4b8c-8b61-ca88b3102a0a/view 500 in 13ms
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF9500%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EMeta%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23663399%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3ESpace%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%23FF6B6B%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EK-Pop%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%2300B74A%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EEV%3C/text%3E%3C/svg%3E 400
+ ⨯ upstream image response failed for https://qofpoxynzgpkgvveqvid.supabase.co/storage/v1/object/public/data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22100%22%20height=%2260%22%20viewBox=%220%200%20100%2060%22%3E%3Crect%20width=%22100%22%20height=%2260%22%20fill=%22%234285f4%22%3E%3C/rect%3E%3Ctext%20x=%2250%22%20y=%2230%22%20font-family=%22Arial%22%20font-size=%228%22%20fill=%22white%22%20text-anchor=%22middle%22%20dominant-baseline=%22middle%22%3EAI%3C/text%3E%3C/svg%3E 400
+ ✓ Compiled in 425ms (3153 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /?_rsc=r3yhw 200 in 343ms
+ ✓ Compiled /api/articles/[id]/view in 150ms (2063 modules)
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ POST /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e/view 200 in 338ms
+ GET /?_rsc=r3yhw 200 in 174ms
+ ⨯ Failed to generate static paths for /api/articles/[id]/view:
+Error: Cannot find module './vendor-chunks/@supabase.js'
+Require stack:
+- /Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js
+- /Users/mielvida/code/NewsPages/.next/server/app/api/articles/[id]/view/route.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1401:15)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1487:12)
+    at mod.require (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js',
+    '/Users/mielvida/code/NewsPages/.next/server/app/api/articles/[id]/view/route.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ]
+}
+ ✓ Compiled /_not-found in 159ms (2064 modules)
+ ⨯ TypeError: Cannot read properties of undefined (reading 'clientModules')
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:39:25703
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:191:62
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:140:36
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:103
+    at NoopContextManager.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:122:28)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/lib/trace/tracer.js:191:31
+    at r3 (/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:41:1678)
+    at async doRender (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1427:30)
+    at async cacheEntry.responseCache.get.routeKind (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/base-server.js:1588:28)
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 713ms (3392 modules)
+ GET /_next/static/css/app/layout.css?v=1752948743522 500 in 1863ms
+[next-auth][warn][DEBUG_ENABLED] 
+https://next-auth.js.org/warnings#debug_enabled
+ GET /_next/static/css/app/layout.css?v=1752948745464 404 in 72ms
+ GET /?_rsc=r3yhw 200 in 548ms
+ GET /?_rsc=r3yhw 200 in 104ms
+ GET /_next/static/media/e4af272ccee01ff0-s.p.woff2 404 in 36ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat '/Users/mielvida/code/NewsPages/.next/server/app/api/articles/[id]/route.js'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/date-fns' in /Users/mielvida/code/NewsPages/.next/server for build dependencies doesn't lead to expected result '/Users/mielvida/code/NewsPages/.next/server/vendor-chunks/date-fns.js', but to 'Error: Can't resolve './vendor-chunks/date-fns' in '/Users/mielvida/code/NewsPages/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/date-fns (expected /Users/mielvida/code/NewsPages/.next/server/vendor-chunks/date-fns.js)
+<w>  at file dependencies /Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js
+<w>  at file /Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/.next/server/app/_not-found/page.js
+<w>  at file /Users/mielvida/code/NewsPages/.next/server/app/_not-found/page.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/handle-externals.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/handle-externals.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at resolve commonjs /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/get-nonce' in /Users/mielvida/code/NewsPages/.next/server for build dependencies doesn't lead to expected result '/Users/mielvida/code/NewsPages/.next/server/vendor-chunks/get-nonce.js', but to 'Error: Can't resolve './vendor-chunks/get-nonce' in '/Users/mielvida/code/NewsPages/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/get-nonce (expected /Users/mielvida/code/NewsPages/.next/server/vendor-chunks/get-nonce.js)
+<w>  at file dependencies /Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js
+<w>  at file /Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/.next/server/app/_not-found/page.js
+<w>  at file /Users/mielvida/code/NewsPages/.next/server/app/_not-found/page.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/handle-externals.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/handle-externals.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at resolve commonjs /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/clsx' in /Users/mielvida/code/NewsPages/.next/server for build dependencies doesn't lead to expected result '/Users/mielvida/code/NewsPages/.next/server/vendor-chunks/clsx.js', but to 'Error: Can't resolve './vendor-chunks/clsx' in '/Users/mielvida/code/NewsPages/.next/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/clsx (expected /Users/mielvida/code/NewsPages/.next/server/vendor-chunks/clsx.js)
+<w>  at file dependencies /Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js
+<w>  at file /Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/.next/server/app/_not-found/page.js
+<w>  at file /Users/mielvida/code/NewsPages/.next/server/app/_not-found/page.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/handle-externals.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/handle-externals.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at resolve commonjs /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/articles/[id]/route' in /Users/mielvida/code/NewsPages/node_modules/next/dist/server for build dependencies doesn't lead to expected result '/Users/mielvida/code/NewsPages/.next/server/app/api/articles/[id]/route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/articles/[id]/route' in '/Users/mielvida/code/NewsPages/node_modules/next/dist/server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/articles/[id]/route (expected /Users/mielvida/code/NewsPages/.next/server/app/api/articles/[id]/route.js)
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/handle-externals.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/handle-externals.js
+<w>  at file dependencies /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at file /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+<w>  at resolve commonjs /Users/mielvida/code/NewsPages/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js
+ ⨯ Error: Cannot find module './vendor-chunks/@supabase.js'
+Require stack:
+- /Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js
+- /Users/mielvida/code/NewsPages/.next/server/app/api/articles/[id]/view/route.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1401:15)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1487:12)
+    at mod.require (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js',
+    '/Users/mielvida/code/NewsPages/.next/server/app/api/articles/[id]/view/route.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ],
+  page: '/api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e/view'
+}
+ POST /api/articles/f657f7b5-2c0c-433d-89e1-c4c43d0b1c9e/view 500 in 174ms
+ ⨯ Error: Cannot find module './vendor-chunks/@supabase.js'
+Require stack:
+- /Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js
+- /Users/mielvida/code/NewsPages/.next/server/app/api/articles/[id]/view/route.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/static-paths-worker.js
+- /Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Function.<anonymous> (node:internal/modules/cjs/loader:1401:15)
+    at /Users/mielvida/code/NewsPages/node_modules/next/dist/server/require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1487:12)
+    at mod.require (/Users/mielvida/code/NewsPages/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/mielvida/code/NewsPages/.next/server/webpack-runtime.js',
+    '/Users/mielvida/code/NewsPages/.next/server/app/api/articles/[id]/view/route.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/server/require.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/server/load-components.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/build/utils.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/server/dev/static-paths-worker.js',
+    '/Users/mielvida/code/NewsPages/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ],
+  page: '/api/articles/a7b28630-dc56-483c-a2f9-7004ac75db56/view'
+}
+ POST /api/articles/a7b28630-dc56-483c-a2f9-7004ac75db56/view 500 in 127ms
+[?25h

@@ -13,17 +13,17 @@
 
     --background: 0 0% 100%;
 
-    --foreground: 0 0% 3.9%;
+    --foreground: 210 11% 15%;
 
     --card: 0 0% 100%;
 
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 210 11% 15%;
 
     --popover: 0 0% 100%;
 
-    --popover-foreground: 0 0% 3.9%;
+    --popover-foreground: 210 11% 15%;
 
-    --primary: 0 0% 9%;
+    --primary: 210 100% 36%;
 
     --primary-foreground: 0 0% 98%;
 
@@ -122,4 +122,23 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* 기사 내용의 이미지 스타일 */
+.prose img {
+  @apply max-w-full h-auto rounded-lg shadow-lg my-4;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* TipTap 에디터 내 이미지 */
+.ProseMirror img {
+  @apply max-w-full h-auto rounded border-2 border-dashed border-gray-300;
+  display: block;
+  margin: 1rem auto;
+}
+
+.ProseMirror img:hover {
+  @apply border-blue-500;
 }

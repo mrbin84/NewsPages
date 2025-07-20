@@ -9,16 +9,22 @@ export default function AuthButton() {
 
   if (session) {
     return (
-      <div className="flex items-center gap-4">
-        <span className="hidden sm:inline">{session.user?.name ?? 'User'}님</span>
-        <Button onClick={() => signOut()}>로그아웃</Button>
+      <div className="flex flex-col gap-2">
+        <span className="text-sm text-gray-600 px-4">{session.user?.name ?? 'Admin'}님</span>
+        <Button 
+          onClick={() => signOut()} 
+          variant="outline"
+          className="text-sm"
+        >
+          관리자 로그아웃
+        </Button>
       </div>
     );
   }
 
   return (
-    <Button asChild>
-      <Link href="/login">로그인</Link>
+    <Button asChild variant="outline" className="text-sm">
+      <Link href="/login">관리자 로그인</Link>
     </Button>
   );
 }

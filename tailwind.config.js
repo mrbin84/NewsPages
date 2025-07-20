@@ -16,6 +16,14 @@ module.exports = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+  			// Coinreaders.com inspired colors
+  			coinreaders: {
+  				blue: '#0064b5',
+  				'blue-dark': '#004d8a',
+  				'blue-light': '#3385c6',
+  				gray: '#f8f9fa',
+  				'gray-dark': '#6c757d',
+  			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

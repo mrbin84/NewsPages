@@ -1,7 +1,3 @@
-import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
-import { format } from 'date-fns';
-import { ko } from 'date-fns/locale';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import NewsList from './NewsList';

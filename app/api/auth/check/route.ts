@@ -4,6 +4,9 @@ import type { NextRequest } from 'next/server';
 
 const JWT_SECRET = 'your-secret-key';
 
+// 동적 라우트 설정
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const token = request.cookies.get('token')?.value;

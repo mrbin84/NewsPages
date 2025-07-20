@@ -5,13 +5,13 @@ import { authOptions } from '@/lib/auth';
 export async function POST(request: Request) {
   try {
     // 인증 확인
-    const session = await getServerSession(authOptions);
-    if (!session) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
       return NextResponse.json(
         { error: 'Authentication required' },
         { status: 401 }
       );
-    }
+  }
 
     const formData = await request.formData();
     const file = formData.get('file') as File;

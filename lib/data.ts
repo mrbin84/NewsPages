@@ -17,40 +17,123 @@ export interface ArticlePreview {
   title: string;
   thumbnail: string | null;
   created_at: string;
+  view_count?: number;
 }
 
-// HTML 컨텐츠에서 첫 번째 이미지 URL을 추출하는 함수
+// HTML 컨텐츠에서 첫 번째 이미지 URL을 추출하는 함수 (개선된 버전)
 export function extractFirstImageUrl(content: string): string | null {
-  const imgRegex = /<img[^>]+src="([^">]+)"/;
+  // Base64 이미지와 일반 URL 모두 지원
+  const imgRegex = /<img[^>]+src="([^">]+)"/i;
   const match = content.match(imgRegex);
-  return match ? match[1] : null;
+  
+  if (match && match[1]) {
+    const src = match[1];
+    // 유효한 이미지 src인지 확인
+    if (src.startsWith('data:image/') || src.startsWith('http') || src.startsWith('/')) {
+      return src;
+    }
+  }
+  
+  return null;
 }
 
-// 리스트 조회용 함수 - content를 제외한 필요한 필드만 조회
-export const getArticlePreviews = unstable_cache(
-  async (): Promise<ArticlePreview[]> => {
-    const { data: articles, error } = await supabase
-      .from('articles')
-      .select('id, title, content, thumbnail, created_at')
-      .order('created_at', { ascending: false });
+// Supabase 스토리지 URL 가져오기
+function getStorageUrl(path: string | null): string | null {
+  if (!path) return null;
+  
+  // 이미 완전한 URL인 경우 그대로 반환
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path;
+  }
+  
+  // Supabase URL이 환경변수에 없는 경우 null 반환
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!supabaseUrl) return null;
+  
+  // 스토리지 URL 생성
+  return `${supabaseUrl}/storage/v1/object/public/${path}`;
+}
 
-    if (error) {
-      console.error('Error fetching article previews from Supabase:', error);
-      throw new Error('Supabase query failed');
-    }
-
-    // 각 기사의 content에서 첫 번째 이미지를 추출하여 thumbnail로 설정
-    const articlesWithThumbnails = articles?.map(article => {
-      if (!article.thumbnail) {
-        article.thumbnail = article.content ? extractFirstImageUrl(article.content) : null;
+// 리스트 조회용 함수 - 캐시 비활성화로 대용량 콘텐츠 처리
+export async function getArticlePreviews(limit: number = 13): Promise<ArticlePreview[]> {
+    try {
+      // 환경 변수 확인
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        console.error('Missing Supabase environment variables');
+        throw new Error('Supabase configuration is missing');
       }
-      const { content, ...preview } = article;
-      return preview;
-    }) || [];
 
-    return articlesWithThumbnails;
+      const { data: articles, error } = await supabase
+        .from('articles')
+        .select('id, title, thumbnail, created_at, view_count')
+        .order('created_at', { ascending: false })
+        .limit(limit);
+
+      if (error) {
+        console.error('Error fetching article previews:', error);
+        throw new Error(`Supabase query failed: ${error.message}`);
+      }
+
+      // thumbnail URL 처리
+      const processedArticles = articles?.map(article => ({
+        id: article.id,
+        title: article.title,
+        thumbnail: getStorageUrl(article.thumbnail),
+        created_at: article.created_at,
+        view_count: article.view_count || 0
+      })) || [];
+
+      return processedArticles;
+    } catch (error) {
+      console.error('Error in getArticlePreviews:', error);
+      
+      // 네트워크 에러인지 확인
+      if (error instanceof Error) {
+        if (error.message.includes('fetch failed') || error.message.includes('ENOTFOUND')) {
+          console.error('Network error detected - Supabase project may be inactive or URL incorrect');
+          throw new Error('Supabase 연결 실패: 프로젝트가 비활성 상태이거나 URL이 잘못되었습니다.');
+        }
+      }
+      
+      // 에러 발생 시 빈 배열 반환하여 앱이 크래시되지 않도록 함
+      return [];
+    }
+}
+
+// 추가: 더 많은 기사를 가져오는 함수
+export const getMoreArticlePreviews = unstable_cache(
+  async (offset: number, limit: number = 10): Promise<ArticlePreview[]> => {
+    try {
+      // 환경 변수 확인
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        console.error('Missing Supabase environment variables');
+        throw new Error('Supabase configuration is missing');
+      }
+
+      const { data: articles, error } = await supabase
+        .from('articles')
+        .select('id, title, thumbnail, created_at, view_count')
+        .order('created_at', { ascending: false })
+        .range(offset, offset + limit - 1);
+
+      if (error) {
+        console.error('Error fetching more article previews from Supabase:', error);
+        throw new Error(`Supabase query failed: ${error.message}`);
+      }
+
+      // thumbnail URL 처리
+      const processedArticles = articles?.map(article => ({
+        ...article,
+        thumbnail: getStorageUrl(article.thumbnail)
+      })) || [];
+
+      return processedArticles;
+    } catch (error) {
+      console.error('Error in getMoreArticlePreviews:', error);
+      return [];
+    }
   },
-  ['article-previews'],
+  ['more-article-previews'],
   {
     revalidate: 3600,
     tags: ['articles'],
@@ -58,56 +141,80 @@ export const getArticlePreviews = unstable_cache(
 );
 
 // 단일 기사 조회용 함수 - 모든 필드 조회
-export const getArticle = unstable_cache(
-  async (id: string): Promise<Article | null> => {
-    const { data: article, error } = await supabase
-      .from('articles')
-      .select('*')
-      .eq('id', id)
-      .single();
-
-    if (error) {
-      console.error('Error fetching article from Supabase:', error);
-      throw new Error('Supabase query failed');
+// 조회수 순으로 많이 본 기사 가져오기
+export async function getMostViewedArticles(limit: number = 5): Promise<ArticlePreview[]> {
+  try {
+    // 환경 변수 확인
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      console.error('Missing Supabase environment variables');
+      throw new Error('Supabase configuration is missing');
     }
 
-    return article;
+    const { data: articles, error } = await supabase
+      .from('articles')
+      .select('id, title, thumbnail, created_at, view_count')
+      .order('view_count', { ascending: false })
+      .order('created_at', { ascending: false }) // 조회수가 같으면 최신순
+      .limit(limit);
+
+    if (error) {
+      console.error('Error fetching most viewed articles:', error);
+      throw new Error(`Supabase query failed: ${error.message}`);
+    }
+
+    // thumbnail URL 처리
+    const processedArticles = articles?.map(article => ({
+      id: article.id,
+      title: article.title,
+      thumbnail: getStorageUrl(article.thumbnail),
+      created_at: article.created_at,
+      view_count: article.view_count || 0
+    })) || [];
+
+    return processedArticles;
+  } catch (error) {
+    console.error('Error in getMostViewedArticles:', error);
+    return [];
+  }
+}
+
+export const getArticle = unstable_cache(
+  async (id: string): Promise<Article | null> => {
+    try {
+      // 환경 변수 확인
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        console.error('Missing Supabase environment variables');
+        throw new Error('Supabase configuration is missing');
+      }
+
+      const { data: article, error } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('id', id)
+        .single();
+
+      if (error) {
+        console.error('Error fetching article:', error);
+        throw new Error(`Supabase query failed: ${error.message}`);
+      }
+
+      // thumbnail URL 처리
+      if (article) {
+        return {
+          ...article,
+          thumbnail: getStorageUrl(article.thumbnail)
+        };
+      }
+
+      return null;
+    } catch (error) {
+      console.error('Error in getArticle:', error);
+      return null;
+    }
   },
   ['article'],
-  {
+  { 
     revalidate: 3600,
     tags: ['articles'],
   }
 );
-
-// 기사 내용에서 요약을 생성하는 헬퍼 함수
-export function generateSummary(content: string, maxLength: number = 200): string {
-  if (!content) return '';
-  
-  // HTML 태그 제거
-  const plainText = content.replace(/<[^>]*>/g, '');
-  
-  // 최대 길이만큼 자르고 마지막 단어가 잘리지 않도록 처리
-  if (plainText.length <= maxLength) return plainText;
-  
-  const truncated = plainText.substring(0, maxLength);
-  const lastSpace = truncated.lastIndexOf(' ');
-  
-  return lastSpace > 0 ? truncated.substring(0, lastSpace) + '...' : truncated + '...';
-}
-
-export const addColumn = async (columnName: string, type: string = 'text', isArray: boolean = false) => {
-  const { data, error } = await supabase.rpc('add_column', {
-    table_name_in: 'articles',
-    column_name_in: columnName,
-    type_in: type,
-    is_array: isArray
-  });
-
-  if (error) {
-    console.error('Error adding column:', error);
-    throw new Error('Failed to add column');
-  }
-
-  return data;
-};

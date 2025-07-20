@@ -32,6 +32,16 @@ export default function NewsDetailPage() {
         }
         const data = await response.json();
         setArticle(data);
+
+        // 조회수 증가 API 호출
+        try {
+          await fetch(`/api/articles/${params.id}/view`, {
+            method: 'POST'
+          });
+        } catch (viewError) {
+          console.error('Failed to update view count:', viewError);
+          // 조회수 업데이트 실패는 사용자에게 보여주지 않음
+        }
       } catch (error) {
         setError(error instanceof Error ? error.message : '알 수 없는 오류가 발생했습니다.');
       } finally {
@@ -103,7 +113,7 @@ export default function NewsDetailPage() {
           </CardHeader>
           <CardContent>
             <div 
-              className="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto"
+              className="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto prose-img:max-w-full prose-img:h-auto prose-img:rounded-lg"
               dangerouslySetInnerHTML={{ __html: article.content }} 
             />
           </CardContent>

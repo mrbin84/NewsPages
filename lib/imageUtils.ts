@@ -7,7 +7,7 @@ interface CompressOptions {
 }
 
 export async function compressImage(buffer: Buffer, options: CompressOptions = {}): Promise<Buffer> {
-  const { maxWidth = 1920, quality = 80 } = options;
+  const { maxWidth = 1200, quality = 50 } = options;
   
   try {
     // 이미지 메타데이터 가져오기
@@ -19,19 +19,22 @@ export async function compressImage(buffer: Buffer, options: CompressOptions = {
     // 파일 크기에 따른 품질 조정
     let finalQuality = quality;
     if (originalSizeMB > 5) {
-      finalQuality = 60;
+      finalQuality = 50;  // 더 강한 압축
     } else if (originalSizeMB > 2) {
-      finalQuality = 70;
+      finalQuality = 60;
     } else if (originalSizeMB > 1) {
-      finalQuality = 75;
+      finalQuality = 65;
+    } else {
+      finalQuality = 70;  // 기본 품질도 낮춤
     }
 
     // 이미지 처리 파이프라인 구성
     let pipeline = sharp(buffer);
 
-    // 너비가 maxWidth를 초과하는 경우 크기 조정
-    if (metadata.width && metadata.width > maxWidth) {
-      pipeline = pipeline.resize(maxWidth, null, {
+    // 이미지 크기 조정 (항상 리사이즈)
+    if (metadata.width) {
+      const targetWidth = Math.min(metadata.width, maxWidth);
+      pipeline = pipeline.resize(targetWidth, null, {
         withoutEnlargement: true,
         fit: 'inside',
       });
@@ -39,7 +42,10 @@ export async function compressImage(buffer: Buffer, options: CompressOptions = {
 
     // WebP 형식으로 변환 및 압축
     const compressedBuffer = await pipeline
-      .webp({ quality: finalQuality })
+      .webp({ 
+        quality: finalQuality,
+        effort: 6
+      })
       .toBuffer();
 
     return compressedBuffer;
@@ -77,10 +83,8 @@ export async function uploadImage(file: File): Promise<string> {
       throw error;
     }
 
-    // 업로드된 이미지의 공개 URL 반환
-    const { data: { publicUrl } } = supabase.storage
-      .from('news-images')
-      .getPublicUrl(fileName);
+    // 업로드된 이미지의 공개 URL 직접 구성
+    const publicUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/news-images/${fileName}`;
 
     return publicUrl;
   } catch (error) {
