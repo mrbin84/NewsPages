@@ -203,7 +203,7 @@ export const getArticle = unstable_cache(
 
       if (error) {
         console.error('Error fetching article:', error);
-        throw new Error(`Supabase query failed: ${error.message}`);
+        return null;
       }
 
       // thumbnail URL 처리
@@ -220,7 +220,7 @@ export const getArticle = unstable_cache(
       return null;
     }
   },
-  ['article'],
+  ['article-by-id'],
   { 
     revalidate: 3600,
     tags: ['articles'],

@@ -1,36 +1,52 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { format } from 'date-fns';
-import { ko } from 'date-fns/locale';
 import { getArticlePreviews, getMostViewedArticles } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
-export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
-export const revalidate = 3600;
+export default function Home() {
+  const [articles, setArticles] = useState([]);
+  const [mostViewedArticles, setMostViewedArticles] = useState([]);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-async function getHomePageData() {
-  try {
-    const [articles, mostViewedArticles] = await Promise.all([
-      getArticlePreviews(15),
-      getMostViewedArticles(5)
-    ]);
-    return { articles, mostViewedArticles, error: null };
-  } catch (e) {
-    console.error('Error fetching articles:', e);
-    return { 
-      articles: [], 
-      mostViewedArticles: [],
-      error: e instanceof Error ? e.message : 'Failed to load articles. Please try again later.' 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [articlesResponse, mostViewedResponse] = await Promise.all([
+          fetch('/api/articles').then(res => res.json()),
+          fetch('/api/articles?mostViewed=true&limit=5').then(res => res.json())
+        ]);
+        
+        setArticles(articlesResponse.slice(0, 15));
+        setMostViewedArticles(mostViewedResponse);
+      } catch (e) {
+        console.error('Error fetching articles:', e);
+        setError(e instanceof Error ? e.message : 'Failed to load articles. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
     };
-  }
-}
 
-export default async function Home() {
-  const { articles, mostViewedArticles, error } = await getHomePageData();
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <main className="bg-coinreaders-gray min-h-screen">
+        <div className="max-w-md mx-auto">
+          <div className="px-2 py-4">
+            <div className="text-center">로딩 중...</div>
+          </div>
+        </div>
+      </main>
+    );
+  }
   if (error) {
     return (
       <main className="container mx-auto px-4 py-8">
@@ -49,7 +65,7 @@ export default async function Home() {
     <main className="bg-coinreaders-gray min-h-screen">
       <div className="max-w-md mx-auto">
         {/* Breaking News Banner */}
-        <div className="bg-coinreaders-blue text-white px-4 py-3">
+        <div className="bg-coinreaders-blue text-white px-2 py-3">
           <div className="flex items-center gap-2">
             <span className="bg-white text-coinreaders-blue px-2 py-1 rounded text-xs font-bold">
               BREAKING
@@ -60,7 +76,7 @@ export default async function Home() {
           </div>
         </div>
         
-        <div className="px-3 py-4 space-y-6">
+        <div className="px-2 py-4 space-y-6">
 
         {/* 메인 톱 뉴스 */}
         <section>
@@ -94,10 +110,7 @@ export default async function Home() {
                     </span>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
-                    <h2 className="text-lg font-bold text-white mb-2 line-clamp-2 leading-tight">{mainArticle.title}</h2>
-                    <div className="flex items-center text-xs text-white/80">
-                      <span>{mainArticle.created_at ? format(new Date(mainArticle.created_at), 'MM월 dd일 HH:mm', { locale: ko }) : ''}</span>
-                    </div>
+                    <h2 className="text-lg font-bold text-white line-clamp-2 leading-tight">{mainArticle.title}</h2>
                   </div>
                 </div>
               </Link>
@@ -131,10 +144,7 @@ export default async function Home() {
                         <div className="absolute inset-0 bg-coinreaders-gray-dark" />
                       )}
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-                        <h4 className="text-sm font-semibold text-white line-clamp-2 mb-1 leading-tight">{article.title}</h4>
-                        <span className="text-xs text-white/80">
-                          {article.created_at ? format(new Date(article.created_at), 'MM월 dd일 HH:mm') : ''}
-                        </span>
+                        <h4 className="text-sm font-semibold text-white line-clamp-2 leading-tight">{article.title}</h4>
                       </div>
                     </div>
                   </Link>

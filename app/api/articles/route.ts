@@ -2,7 +2,27 @@ import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
-import { extractFirstImageUrl } from '@/lib/data';
+import { extractFirstImageUrl, getArticlePreviews, getMostViewedArticles } from '@/lib/data';
+
+// GET articles
+export async function GET(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const mostViewed = searchParams.get('mostViewed');
+    const limit = parseInt(searchParams.get('limit') || '15');
+
+    if (mostViewed === 'true') {
+      const articles = await getMostViewedArticles(limit);
+      return NextResponse.json(articles);
+    } else {
+      const articles = await getArticlePreviews(limit);
+      return NextResponse.json(articles);
+    }
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  }
+}
 
 // POST a new article
 export async function POST(request: Request) {

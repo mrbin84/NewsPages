@@ -15,9 +15,9 @@ export default async function NewsPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">전체 기사</h1>
+    <div className="container mx-auto px-2 sm:px-4 py-8">
+      <div className="flex justify-between items-center mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold">전체 기사</h1>
       </div>
       <NewsList articles={articles} session={session} />
     </div>

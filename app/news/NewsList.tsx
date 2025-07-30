@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
-import { format } from 'date-fns';
-import { ko } from 'date-fns/locale';
 import { Session } from 'next-auth';
 import { useRouter } from 'next/navigation';
 import { ArticlePreview } from '@/lib/data';
@@ -102,7 +100,6 @@ export default function NewsList({ articles: initialArticles, session }: NewsLis
           <div className="text-center text-gray-500 col-span-full">등록된 기사가 없습니다.</div>
         ) : (
           articles.map((article) => {
-            const isValidDate = article.created_at && !isNaN(new Date(article.created_at).getTime());
 
             return (
               <div key={article.id} className="flex items-center gap-2">
@@ -110,7 +107,7 @@ export default function NewsList({ articles: initialArticles, session }: NewsLis
                   <Card className="hover:bg-accent transition-colors">
                     <CardContent className="p-3">
                       <div className="flex gap-3 items-center">
-                        <div className="flex-shrink-0 relative w-16 h-16 bg-muted rounded overflow-hidden">
+                        <div className="flex-shrink-0 relative w-12 h-12 bg-muted rounded overflow-hidden">
                           {article.thumbnail ? (
                             <LazyImage
                               src={article.thumbnail}
@@ -136,13 +133,8 @@ export default function NewsList({ articles: initialArticles, session }: NewsLis
                             </div>
                           )}
                         </div>
-                        <div className="flex-grow flex justify-between items-center min-w-0">
-                          <h3 className="font-medium truncate mr-4">{article.title}</h3>
-                          <time className="text-xs text-muted-foreground flex-shrink-0">
-                            {isValidDate
-                              ? format(new Date(article.created_at), 'PPP', { locale: ko })
-                              : '날짜 정보 없음'}
-                          </time>
+                        <div className="flex-grow min-w-0">
+                          <h3 className="font-medium line-clamp-2 text-sm leading-tight">{article.title}</h3>
                         </div>
                       </div>
                     </CardContent>

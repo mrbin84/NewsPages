@@ -33,18 +33,18 @@ const Header = ({ session }: { session: Session | null }) => {
 
   return (
     <Card className="sticky top-0 z-50 w-full border-b bg-background shadow-sm">
-      <div className="container relative flex h-16 items-center">
-        {/* Left Section: Logo */}
-        <div className="flex items-center">
+      <div className="container relative flex h-12 items-center">
+        {/* Center Section: Logo */}
+        <div className="absolute left-1/2 transform -translate-x-1/2">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="relative w-[140px] h-[35px]">
+            <div className="relative w-[120px] h-[30px]">
               <Image src="/images/logo.png" alt="BizFocus Logo" fill sizes="140px" style={{ objectFit: 'contain' }} priority />
             </div>
           </Link>
         </div>
 
-        {/* Center Section: Navigation */}
-        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium ml-8">
+        {/* Left Section: Navigation */}
+        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
           <Link
             href="/"
             className={`transition-colors hover:text-coinreaders-blue ${
