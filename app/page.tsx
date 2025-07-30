@@ -10,8 +10,8 @@ import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [articles, setArticles] = useState([]);
-  const [mostViewedArticles, setMostViewedArticles] = useState([]);
+  const [articles, setArticles] = useState<any[]>([]);
+  const [mostViewedArticles, setMostViewedArticles] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -59,7 +59,7 @@ export default function Home() {
     );
   }
 
-  const mainArticle = articles[0];
+  const mainArticle = articles.length > 0 ? articles[0] : null;
 
   return (
     <main className="bg-coinreaders-gray min-h-screen">
